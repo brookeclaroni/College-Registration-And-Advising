@@ -24,7 +24,7 @@ $uid = $_SESSION["user_id"];
 
     <div class="main-container">
         <?php
-        chdir('/home/ead/sp19DBp2-harmonandbrooke');
+        chdir('/home/ead/sp19DBp2-harmonandbrooke/public_html/harmonandbrooke');
         $command = "mysql --user=harmonandbrooke --password=DBteam18! " . "-h 127.0.0.1 -D harmonandbrooke < ./";
         $output = shell_exec($command . '/schema.sql');
         header("Location: index.php");

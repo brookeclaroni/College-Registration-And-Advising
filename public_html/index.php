@@ -33,10 +33,7 @@ if (!$conn) {
     <form action="reset.php" method="post" class="reset-button">
         <button type="submit" style="display: block; margin: 0 auto;">Reset</button>
     </form>
-    <div class="main-container">
-        <h1 style="text-align: center; font-size: 40px;">Flat Earth Society</h1>
-        <img style="width: 100%" src="img/flat_earth.png">
-    </div>
+
 </body>
 
 </html> 
