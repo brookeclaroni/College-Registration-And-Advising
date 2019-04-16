@@ -1,7 +1,6 @@
 -- Populate user table
 INSERT INTO user VALUES (
     88888888,
-    null,
     'password123',
     'Billie',
     'billie@gmail.com',
@@ -13,7 +12,6 @@ INSERT INTO user VALUES (
 
 INSERT INTO user VALUES (
     99999999,
-    null,
     'password123',
     'Diana',
     'diana@gmail.com',
@@ -25,7 +23,6 @@ INSERT INTO user VALUES (
 
 INSERT INTO user VALUES (
     12345678,
-    null,
     'password123',
     'Bhagirath',
     'bhagi@gmail.com',
@@ -37,7 +34,6 @@ INSERT INTO user VALUES (
 
 INSERT INTO user VALUES (
     12121212,
-    null,
     'password123',
     'Hyeong-Ah',
     'hyeong@gmail.com',
@@ -49,7 +45,6 @@ INSERT INTO user VALUES (
 
 INSERT INTO user VALUES (
     43782859,
-    null,
     'password123',
     'Alex',
     'alex@gmail.com',

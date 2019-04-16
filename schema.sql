@@ -10,7 +10,6 @@ DROP TABLE IF EXISTS user;
 -- Create user table
 CREATE TABLE user (
     uid INT,
-    advisorid INT,
     password VARCHAR(32),
     username VARCHAR(32),
     email VARCHAR(100),
@@ -31,6 +30,7 @@ CREATE TABLE role (
 --
 create table aspects(
   id int,
+  advisorid int,
   -- role varchar(100),
   reviewForm int,
   approveThesis int,
