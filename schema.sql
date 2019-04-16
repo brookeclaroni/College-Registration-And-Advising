@@ -1,16 +1,23 @@
+DROP TABLE IF EXISTS formOne;
+DROP TABLE IF EXISTS formOneValid;
 DROP TABLE IF EXISTS enrolls;
 DROP TABLE IF EXISTS schedule;
 DROP TABLE IF EXISTS course;
 DROP TABLE IF EXISTS role;
+DROP TABLE IF EXISTS aspects;
 DROP TABLE IF EXISTS user;
 
 -- Create user table
 CREATE TABLE user (
     uid INT,
+    advisorid INT,
     password VARCHAR(32),
+    username VARCHAR(32),
+    email VARCHAR(100),
     fname VARCHAR(32),
     lname VARCHAR(32),
     address VARCHAR(128),
+    balance float(20,2),
     PRIMARY KEY (uid)
 );
 
@@ -20,6 +27,18 @@ CREATE TABLE role (
     type VARCHAR(16),
     FOREIGN KEY (uid) REFERENCES user(uid)
 );
+
+--
+create table aspects(
+  id int,
+  -- role varchar(100),
+  reviewForm int,
+  approveThesis int,
+  clearedToGrad int,
+  primary key(id),
+  foreign key(id) references user(uid)
+);
+--
 
 -- Create course table
 CREATE TABLE course (
@@ -62,6 +81,26 @@ CREATE TABLE enrolls (
     FOREIGN KEY (uid) REFERENCES user(uid),
     FOREIGN KEY (sid) REFERENCES schedule(sid)
 );
+
+
+--
+create table formOne(
+  num int auto_increment,
+  id int,
+  courseNumber int,
+  dept varchar(100),
+  primary key(num),
+  foreign key(id) references user(uid)
+  );
+  
+  create table formOneValid(
+  num int auto_increment,
+  id int,
+  courseNumber int,
+  dept varchar(100),
+  primary key(num)
+  );
+--
 
 source populate_users.sql;
 source populate_role.sql;
