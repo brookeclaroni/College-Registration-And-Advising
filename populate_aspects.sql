@@ -1,17 +1,3 @@
-create table aspects(
-  id int,
-  advisorid int,
-  startYear VARCHAR(16),
-  gradYear VARCHAR(16),
-  -- role varchar(100),
-  reviewForm int,
-  approveThesis int,
-  clearedToGrad int,
-  primary key(id),
-  foreign key(id) references user(uid)
-);
-
-
 INSERT INTO aspects VALUES (
     88888888, 
     NULL,
