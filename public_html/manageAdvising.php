@@ -46,7 +46,7 @@ function trim_input($data)
     echo '<div class="main-container">';
        
             echo "<h1>Students without an Adivisor</h1>";
-            $query =  "SELECT * FROM role r, user u, aspects a WHERE r.uid = u.uid AND u.uid = a.id AND r.role = 'student' AND a.advisorid IS NULL";
+            $query =  "SELECT * FROM role r, user u, aspects a WHERE r.uid = u.uid AND u.uid = a.id AND r.type = 'student' AND a.advisorid IS NULL";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) > 0) {
                 echo "<table>
