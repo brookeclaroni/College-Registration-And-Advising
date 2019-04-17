@@ -166,9 +166,9 @@ function trim_input($data)
                 echo "<script type='text/javascript'>alert('$message');</script>";
                 die();
             }
-
-            $sql = "INSERT INTO user
-                VALUES ('$nuid', '$npass', '$nfname', '$nlname', '$naddress')";
+//TODO: add email & username (?)
+            $sql = "INSERT INTO user (uid, password, fname, lname, address, balance)
+                VALUES ('$nuid', '$npass', '$nfname', '$nlname', '$naddress', 0.00)";
             if (mysqli_query($conn, $sql)) {
                 $nroles_array = explode(",", $nroles);
                 foreach ($nroles_array as $nrole) {
