@@ -106,6 +106,7 @@ create table formOne(
 
 source populate_users.sql;
 source populate_role.sql;
+source populate_aspects.sql;
 source populate_courses.sql;
 source populate_schedule.sql;
 source populate_enrolls.sql;
