@@ -42,8 +42,8 @@ function trim_input($data)
 <body>
     <?php
     include "navbar.php";
-    ?>
-    <div class="main-container">
+    
+    echo '<div class="main-container">';
         if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"])) {
             echo "<h1>Advisee List</h1>";
             $query = "SELECT * FROM user INNER JOIN aspects ON user.uid = aspects.uid WHERE aspect.advisorid =".$uid."";
