@@ -17,6 +17,9 @@
             echo ("<a href=\"courses.php\">Courses</a>");
             echo ("<a href=\"gradeCourses.php\">Grades</a>");
         }
+        if (in_array("advisor", $_SESSION["user_role"])) {
+            echo ("<a href=\"manageAdvisees.php\">Manage Advisees</a>");
+        }
         if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("instructor", $_SESSION["user_role"])) {
             echo ("<a href=\"manage.php\">Manage</a>");
         }
