@@ -54,13 +54,30 @@ function trim_input($data)
                         <th>User Name</th>
                         <th>User ID</th>
                         <th>Select Advisor</th>
-                        <th>Assign</th>
+                        <th>Action</th>
                     </tr>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
-                    echo "<td>Advisor Names</td>";
+                    echo "<td>"
+                        	echo '<form action="manageAdvising.php" method="post">';
+				            echo '<select name="advisorid">';
+					        $advisor_query = "SELECT * FROM role r, user u WHERE r.uid = u.uid AND r.type = 'advisor'";
+					        $advisor_result = mysqli_query($conn,$advisor_query);
+					        if (mysqli_num_rows($advisor_result) > 0)
+					        {
+						        while ($row = mysqli_fetch_assoc($advisor_result))
+						        {
+							        $advisor_id = $row["uid"];
+							        $advisor_fname = $row["fname"];
+							        $advisor_lname = $row["lname"];
+  							        echo '<option value="'.$advisor_id.'">'.$advisor_fname.' '.$advisor_lname.'</option>';
+						        }
+					        }
+				            echo '</select>';
+                            echo '</form>';
+                    echo "</td>";
                     echo "<td>Assign</td>";
                     echo "</tr>";
                 }
