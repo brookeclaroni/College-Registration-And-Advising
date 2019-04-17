@@ -31,6 +31,7 @@ CREATE TABLE role (
 create table aspects(
   id int,
   advisorid int,
+  gradYear VARCHAR(16),
   -- role varchar(100),
   reviewForm int,
   approveThesis int,
