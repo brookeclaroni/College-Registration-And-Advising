@@ -109,7 +109,7 @@ function trim_input($data)
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
 			echo "<td>";
-				$innerquery = "SELECT * FROM user WHERE uid = ".$row["advisorid"]."";
+				$innerquery = "SELECT * FROM user WHERE uid = ".$row['advisorid']."";
 				$innerresult = mysqli_query($conn,$innerquery);
 				if (mysqli_num_rows($result) > 0)
 				{
