@@ -44,7 +44,7 @@ if (!$conn) {
         <h1>Form 1</h1>
         <?php
     // Show only form 1 inputs from the student selected
-        $query = "SELECT * FROM formOne, schedule, course WHERE schedule.sid=enrolls.sid AND course.cid=schedule.cid AND formOne.id=" . $uid . "";
+        $query = "SELECT * FROM formOne WHERE formOne.id=" . $uid . "";
         $result = mysqli_query($conn, $query);
         // Generate a table of all the classes listed in form 1
         if (mysqli_num_rows($result) > 0) {
