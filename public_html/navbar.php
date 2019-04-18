@@ -22,6 +22,11 @@
         if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("instructor", $_SESSION["user_role"])) {
             echo ("<a href=\"manage.php\">Manage</a>");
         }
+        
+        if (in_array("gs", $_SESSION["user_role"]))
+        {
+            echo ("<a href=\"manageAdvising.php\">Advising</a>");
+        }
         echo ("<a href=\"info.php\">Info</a>");
     }
     ?>
