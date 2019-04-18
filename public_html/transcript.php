@@ -4,7 +4,7 @@ session_start();
 if (empty($_SESSION["user_id"])) {
     header("Location: index.php");
 }
-if (!empty($_POST["mail"])) {
+if (!empty($_POST["id"])) {
     $uid = $_POST["id"];    
 } else {  
     $uid = $_SESSION["user_id"];
