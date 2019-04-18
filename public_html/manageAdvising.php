@@ -61,7 +61,7 @@ function trim_input($data)
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
                     echo "<td>";
-                        	echo '<form action="manageAdvising.php" method="post">';
+                        	echo '<form action="assignAdvisor.php" method="post">';
 				            echo '<select name="advisorid">';
 					        $advisor_query = "SELECT * FROM role r, user u WHERE r.uid = u.uid AND r.type = 'advisor'";
 					        $advisor_result = mysqli_query($conn,$advisor_query);
@@ -76,9 +76,13 @@ function trim_input($data)
 						        }
 					        }
 				            echo '</select>';
-                            echo '</form>';
+                            
                     echo "</td>";
-                    echo "<td>Assign</td>";
+			echo "<td>";
+				echo '<input type="hidden" name="id" value = "'.$id.'">';
+    				echo '<button type="submit">Assign</button>';
+			echo '</form>';
+			echo "</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
