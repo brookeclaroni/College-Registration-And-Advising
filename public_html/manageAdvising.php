@@ -109,7 +109,7 @@ function trim_input($data)
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
 			echo "<td>";
-				$innerquery = "SELECT * FROM user WHERE uid = ".$row['advisorid']."";
+				$innerquery = 'SELECT * FROM user WHERE uid = '.$row["advisorid"].'';
 				$innerresult = mysqli_query($conn,$innerquery);
 				if (mysqli_num_rows($result) > 0)
 				{
@@ -119,7 +119,9 @@ function trim_input($data)
 						$advisor_lname = $innerrow["lname"];	
 					}
 				}
-			echo ""$advisor_fname." ".$advisor_lname"";
+			echo $advisor_fname;
+			echo " ";
+			echo $advisor_lname;
 			echo "</td>";
 			echo '<td><form action="removeAdvisor.php" method="post"><input type="hidden" name="id" value = "'.$row["uid"].'"><button type="submit">Remove Advisor</button></form>';
                     echo "</td>";
