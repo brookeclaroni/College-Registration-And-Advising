@@ -43,9 +43,9 @@ if (!$conn) {
     ?>
     <div class="main-container">
         <h1>Form 1</h1>
+        <p>Check prior submission: <form action="viewForm1.php" method="post"><button type="submit">HERE</button></form></p>
     <form action="form1Validate.php" method="post">Please enter the courses you plan to take to earn your MS degree in Computer Science. You
 may enter at most 12 courses, and your Form 1 must meet the degree requirements.<br>
-        <p>Check prior submission: <form action="viewForm1.php" method="post"><button type="submit">HERE</button></form></p>
         <br>
         <?php
         echo $_SESSION["error"];
