@@ -51,8 +51,8 @@ function trim_input($data)
             if (mysqli_num_rows($result) > 0) {
                 echo "<table>
                     <tr>
-                        <th>User Name</th>
-                        <th>User ID</th>
+                        <th>Student Name</th>
+                        <th>Student ID</th>
                         <th>Select Advisor</th>
                         <th>Action</th>
                     </tr>";
@@ -98,8 +98,8 @@ function trim_input($data)
             if (mysqli_num_rows($result) > 0) {
                 echo "<table>
                     <tr>
-                        <th>User Name</th>
-                        <th>User ID</th>
+                        <th>Student Name</th>
+                        <th>Student ID</th>
                         <th>Advisor</th>
                         <th>Action</th>
                     </tr>";
