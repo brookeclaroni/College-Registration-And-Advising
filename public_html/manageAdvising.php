@@ -106,7 +106,19 @@ function trim_input($data)
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
 			echo "<td>" . $row["advisorid"] . "</td>";
-			echo "<td>Change</td>";
+			echo '<form action="removeAdvisor.php" method="post"><input type="hidden" name="id" value = "'.$row["uid"].'"><button type="submit">Remove Advisor</button></form>';
+                    echo "</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+            }
+        
+        ?>
+    </div>
+</body>
+
+</html> 
+
                     echo "</tr>";
                 }
                 echo "</table>";
