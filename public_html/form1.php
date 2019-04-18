@@ -48,7 +48,9 @@ if (!$conn) {
 may enter at most 12 courses, and your Form 1 must meet the degree requirements.<br>
         <br>
         <?php
-        echo $_SESSION["error"];
+        echo "<p style='color:#FF0000'>";
+            echo $_SESSION["error"];
+        echo "</p>";
         ?>
   <table>
     <tr>
