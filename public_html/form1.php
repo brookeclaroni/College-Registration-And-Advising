@@ -50,6 +50,7 @@ may enter at most 12 courses, and your Form 1 must meet the degree requirements.
         <?php
         echo "<p style='color:#FF0000'>";
             echo $_SESSION["error"];
+            $_SESSION["error"] = "";
         echo "</p>";
         ?>
   <table>
