@@ -4,7 +4,7 @@ if (empty($_SESSION["user_id"])) {
     header("Location: index.php");
 }
 if (
-    !in_array("advisor", $_SESSION["user_role"]) ||  !in_array("student", $_SESSION["user_role"])
+    !in_array("advisor", $_SESSION["user_role"]) &&  !in_array("student", $_SESSION["user_role"])
 ) {
     header("Location: index.php");
 }
