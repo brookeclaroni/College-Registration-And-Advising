@@ -64,7 +64,9 @@ function trim_input($data)
                     echo "<td>";
                     echo '<form action="transcript.php" method="post"><input type="hidden" name="id" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
                     echo "</td>";
-                    echo "<td>View</td>";
+                    echo "<td>";
+                    echo '<form action="viewForm1.php" method="post"><input type="hidden" name="id" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
+                    echo "</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
