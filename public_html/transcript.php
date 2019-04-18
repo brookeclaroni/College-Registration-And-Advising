@@ -4,7 +4,12 @@ session_start();
 if (empty($_SESSION["user_id"])) {
     header("Location: index.php");
 }
-$uid = $_SESSION["user_id"];
+if (!empty($_POST["mail"])) {
+    $uid = $_POST["uid"];    
+} else {  
+    $uid = $_SESSION["user_id"];
+}
+
 
 $servername = "127.0.0.1";
 $username = "harmonandbrooke";
