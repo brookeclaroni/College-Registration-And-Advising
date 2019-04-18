@@ -88,6 +88,29 @@ function trim_input($data)
                 }
                 echo "</table>";
             }
+	
+	 echo "<h1>Students with an Adivisor</h1>";
+            $query =  "SELECT * FROM role r, user u, aspects a WHERE r.uid = u.uid AND u.uid = a.id AND r.type = 'student' AND a.advisorid IS NOT NULL";
+            $result = mysqli_query($conn, $query);
+            if (mysqli_num_rows($result) > 0) {
+                echo "<table>
+                    <tr>
+                        <th>User Name</th>
+                        <th>User ID</th>
+                        <th>Advisor ID</th>
+                        <th>Action</th>
+                    </tr>";
+                while ($row = mysqli_fetch_assoc($result)) {
+			$id = $row["uid"];
+                    echo "<tr>";
+                    echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
+                    echo "<td>" . $row["uid"] . "</td>";
+			echo "<td>" . $row["advisorid"] . "</td>";
+			echo "<td>Change</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+            }
         
         ?>
     </div>
