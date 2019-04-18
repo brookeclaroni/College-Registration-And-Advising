@@ -29,7 +29,7 @@ if (!$conn) {
 		if(mysqli_query($conn,$assign_query))
 		{
 			echo "assigned";
-			echo 'header("Location: manageAdvising.php")';
+			header('Location: manageAdvising.php');
 		}
 		else
 		{
