@@ -102,7 +102,7 @@ if (!$conn) {
         for($x = 0; $x < 12; $x++){
           $queryCredits = "SELECT credits FROM course
             WHERE dept = '$deptArray[$x]'
-              AND courseNumber = '$numArray[$x]'";
+              AND cnum = '$numArray[$x]'";
           $result4 = mysqli_query($conn, $queryCredits) or die("Bad Query: $query");
           while($row = mysqli_fetch_array($result4)){
             $creditInt = $creditInt + $row['credits'];
