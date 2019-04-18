@@ -23,6 +23,8 @@ if (!$conn) {
     // Redirect to user friendly error page
     die('Error: ' . mysqli_connect_error());
 }
+
+echo $_SESSION["error"];
 ?>
 
 <!DOCTYPE html>
