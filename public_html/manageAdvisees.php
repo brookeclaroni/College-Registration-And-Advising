@@ -71,6 +71,9 @@ function trim_input($data)
                 }
                 echo "</table>";
             }
+            else{
+                echo "You currently have no advisees assigned to you.";
+            }
         
         ?>
     </div>
