@@ -61,6 +61,9 @@ if (!$conn) {
             }
             echo "</table>";
         }
+        else{
+            echo "Form 1 has not been submitted."
+        }
         ?>
     </div>
 </body>
