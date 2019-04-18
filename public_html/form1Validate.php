@@ -147,6 +147,7 @@ if (!$conn) {
         else{
 	  $queryDeleteTest = "DELETE FROM formOneValid WHERE id = '$id'";
           $resultDeleteTest = mysqli_query($conn, $queryDeleteTest);
+	  session_start();
 	  $_SESSION["error"] = $error;
           header("Location: form1.php");
           exit();
