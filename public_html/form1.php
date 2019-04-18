@@ -62,7 +62,7 @@ may enter at most 12 courses, and your Form 1 must meet the degree requirements.
     </tr>
     <tr>
       <th>1</th>
-      <th><input type="text" ID="d1" name="d1" "></th>
+      <th><input type="text" ID="d1" name="d1" ></th>
       <th><input type="text" ID="num1" name="num1" ></th>
     </tr>
     <tr>
