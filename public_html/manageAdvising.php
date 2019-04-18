@@ -100,7 +100,7 @@ function trim_input($data)
                     <tr>
                         <th>User Name</th>
                         <th>User ID</th>
-                        <th>Advisor ID</th>
+                        <th>Advisor</th>
                         <th>Action</th>
                     </tr>";
                 while ($row = mysqli_fetch_assoc($result)) {
