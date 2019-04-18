@@ -57,6 +57,7 @@ function trim_input($data)
                         <th>Action</th>
                     </tr>";
                 while ($row = mysqli_fetch_assoc($result)) {
+			$id = $row["uid"];
                     echo "<tr>";
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
