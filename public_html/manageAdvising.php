@@ -88,6 +88,9 @@ function trim_input($data)
                 }
                 echo "</table>";
             }
+	  else{
+		  echo "All students have been assigned an advisor.";
+	  }
 	
 	 echo "<h1>Students with an Adivisor</h1>";
             $query =  "SELECT * FROM role r, user u, aspects a WHERE r.uid = u.uid AND u.uid = a.id AND r.type = 'student' AND a.advisorid IS NOT NULL";
@@ -112,6 +115,9 @@ function trim_input($data)
                 }
                 echo "</table>";
             }
+	 else{
+		  echo "Currently, no students have been assigned an advisor.";
+	  }
         
         ?>
     </div>
