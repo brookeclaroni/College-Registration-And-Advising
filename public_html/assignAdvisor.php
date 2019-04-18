@@ -28,6 +28,11 @@ if (!$conn) {
 		$assign_query = "UPDATE aspects SET advisorid = ".$advisorid." WHERE id = ".$studentid."";
 		if(mysqli_query($conn,$assign_query))
 		{
-			header("Location: manageAdvising.php");
+			echo "assigned";
+			echo 'header("Location: manageAdvising.php")';
+		}
+		else
+		{
+			echo "error";
 		}
 ?>
