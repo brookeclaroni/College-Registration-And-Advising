@@ -24,7 +24,6 @@ if (!$conn) {
     die('Error: ' . mysqli_connect_error());
 }
 
-echo $_SESSION["error"];
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +45,9 @@ echo $_SESSION["error"];
         <h1>Form 1</h1>
     <form action="form1.php" method="post">Please enter the courses you plan to take to earn your MS degree in Computer Science. You
 may enter at most 12 courses, and your Form 1 must meet the degree requirements.<br><br>
+        <?php
+        echo $_SESSION["error"];
+        ?>
   <table>
     <tr>
       <th>Univ ID</th>
