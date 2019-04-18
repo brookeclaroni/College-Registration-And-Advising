@@ -13,19 +13,20 @@ Student
 - [ ] edit personal info w more fields
 
 Alumni
+- [x] view transcript
 - [ ] edit personal info w more fields
 
 Advisor
 - [ ] edit personal info w more fields
 - [ ] view advisees' personal info w more fields
-- [ ] view advisees' trancript
-- [ ] view advisees' form 1
+- [x] view advisees' transcript
+- [x] view advisees' form 1
 
 Grad sec
 - [ ] edit personal info w more fields
 - [ ] graduate student 
-- [ ] assign advisors to advisorless students 
-- [ ] change a students assigned advisor 
+- [x] assign advisors to advisorless students 
+- [x] change a students assigned advisor 
 
 Sys admin
 - [ ] make sure register new user goes into user, roles, and aspects
