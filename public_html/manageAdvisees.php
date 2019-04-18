@@ -61,7 +61,9 @@ function trim_input($data)
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
                     echo "<td>" . $row["address"] . "</td>";
-                    echo "<td>View</td>";
+                    echo "<td>";
+                    echo '<form action="transcript.php" method="post"><button type="submit">View</button></form>';
+                    echo "</td>";
                     echo "<td>View</td>";
                     echo "</tr>";
                 }
