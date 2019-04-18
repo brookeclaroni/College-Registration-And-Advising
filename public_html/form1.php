@@ -45,7 +45,7 @@ if (!$conn) {
         <?php
 
       
-      include "viewForm1.php";
+      //include "viewForm1.php";
         ?>
     </div>
 </body>
