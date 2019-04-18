@@ -118,14 +118,3 @@ function trim_input($data)
 </body>
 
 </html> 
-
-                    echo "</tr>";
-                }
-                echo "</table>";
-            }
-        
-        ?>
-    </div>
-</body>
-
-</html> 
