@@ -131,7 +131,7 @@ if (!$conn) {
         //echo "<p>alreadyBool = ".$alreadyBool."</p>";
 	echo "<p>".$error."</p>";
         // insert the data into form 1 database if all checks pass
-        if($courseBool == 1 && $hoursBool == 1 && $courseOutsideBool == 1 && $alreadyBool == 1){
+        if($courseBool == 1 && $hoursBool == 1 && $courseOutsideBool == 1){
           $deleteQuery = "DELETE FROM formOneValid WHERE id = $id";
           $deleteResult = mysqli_query($conn, $deleteQuery);
           for($x = 0; $x < 12; $x++) {
