@@ -45,7 +45,7 @@ function trim_input($data)
     
     echo '<div class="main-container">';
             echo "<h1>Advisee List</h1>";
-            $query = "SELECT * FROM user u, aspects a WHERE u.uid = a.id WHERE a.advisorid =".$uid."";
+            $query = "SELECT * FROM user u, aspects a WHERE u.uid = a.id AND a.advisorid =".$uid."";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) > 0) {
                 echo "<table>
