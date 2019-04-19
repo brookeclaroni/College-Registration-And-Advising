@@ -13,6 +13,8 @@ if (!empty($_POST["id"])) {
 } else {  
     $id = $_SESSION["user_id"];
 }
+
+    
 $servername = "127.0.0.1";
 $username = "harmonandbrooke";
 $password = "DBteam18!";
@@ -127,9 +129,11 @@ if (!$conn) {
         if($error != 1 && $totalGPA >= 3.0 && $failCounter <= 2 && $compBool == 1){
           $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE uid = '$id'";
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
+            $_SESSION["gradSuccess"] = "Your application for graduation has been submitted and will be reiewed by a graduate secretary soon.";
           header("Location: applyToGraduate.php");
         }
         else{
+            $_SESSION["gradFailure"] = "Your application for graduation has not been submitted due to an error.";
           header("Location: applyToGraduate.php");
         }
       //close connection
