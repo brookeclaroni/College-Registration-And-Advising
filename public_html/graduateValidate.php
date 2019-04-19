@@ -135,6 +135,8 @@ if (!$conn) {
        
         if($form1Error == 1)
         {
+            $failMsg .= $y;
+            $failMsg .= " ";
             $failMsg .= $totalGPA;
             $failMsg .= " ";
             $failMsg .=  $creditCount;
