@@ -27,13 +27,5 @@ INSERT INTO role VALUES (
 );
 
 INSERT INTO role VALUES (
-    88888888, 'master'
-);
-
-INSERT INTO role VALUES (
     99999999, 'student'
-);
-
-INSERT INTO role VALUES (
-    99999999, 'phd'
 );
