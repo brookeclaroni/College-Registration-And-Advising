@@ -48,7 +48,7 @@ function trim_input($data)
             echo "<h1>Students Cleared for Graduation</h1>";
             $cleared_query =  "SELECT * FROM role r, user u, aspects a WHERE r.uid = u.uid AND u.uid = a.id AND r.type = 'student' AND a.clearedToGrad = 1";
             $cleared_result = mysqli_query($conn, $cleared_query);
-            if (mysqli_num_rows($result) > 0) {
+            if (mysqli_num_rows($cleared_result) > 0) {
                 echo "<table>
                     <tr>
                         <th>Student Name</th>
@@ -57,7 +57,7 @@ function trim_input($data)
                         <th>Transcript</th>
                         <th>Action</th>
                     </tr>";
-                while ($row = mysqli_fetch_assoc($result)) {
+                while ($row = mysqli_fetch_assoc($cleared_result)) {
 			$id = $row["uid"];
                     echo "<tr>";
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
