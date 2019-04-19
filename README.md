@@ -2,13 +2,10 @@
 
 To do for phase 2:
 
-Login
-- [ ] sign in with username?
-
 Student
-- [ ] enter form 1
-- [ ] view form 1
-- [ ] apply to graduate
+- [x] enter form 1
+- [x] view form 1
+- [x] apply to graduate (- [ ] debug the gpa calc error)
 - [ ] registration form
 - [ ] edit personal info w more fields
 
