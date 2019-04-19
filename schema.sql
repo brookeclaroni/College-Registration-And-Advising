@@ -34,6 +34,7 @@ create table aspects(
   advisorid int,
   startYear VARCHAR(16),
   gradYear VARCHAR(16),
+  degreeType VARCHAR(16),
   -- role varchar(100),
   reviewForm int,
   approveThesis int,
