@@ -74,9 +74,9 @@ if (!$conn) {
         $compBool = 1;
       }
       for($x = 0; $x < 12; $x++){
-        $query2 = "SELECT * FROM enrolls
-                    WHERE dept = '$deptArray[$x]'
-                      AND cnum = '$numArray[$x]'";
+        $query2 = "SELECT * FROM enrolls e, schedule s, course c
+                    WHERE e.sid=s.sid AND s.cid = c.cid AND c.dept = '$deptArray[$x]'
+                      AND c.cnum = '$numArray[$x]'";
         $result2 = mysqli_query($conn, $query2) or die("Bad Query: $query2");
         while($row = mysqli_fetch_array($result2)){
           $gradeArray[$x] = $row['grade'];
