@@ -87,7 +87,7 @@ function trim_input($data)
 	  }
 	
 	 echo "<h1>Graduated Students</h1>";
-            $query =  "SELECT * FROM role r, user u WHERE r.uid = u.uid AND r.type = 'alumni'";
+            $query =  "SELECT * FROM role r, user u, aspects a WHERE a.id =u.uid AND r.uid = u.uid AND r.type = 'alumni'";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) > 0) {
                 echo "<table>
@@ -102,11 +102,11 @@ function trim_input($data)
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
 			echo "<td>";
-			echo "- MS/PhD -";
+			echo "<td>" . $row["degreeType"] . "</td>";
 			echo "</td>";
 			
 		     echo '<td>';
-                     echo "- 2019 -";
+			echo "<td>" . $row["gradYear"] . "</td>";
                     echo "</td>";
 			
                     echo "</tr>";
