@@ -9,6 +9,7 @@
             echo ("<a href=\"transcript.php\">Transcript</a>");
             echo ("<a href=\"gradeCourses.php\">Grades</a>");
             echo ("<a href=\"form1.php\">Form 1</a>");
+            echo ("<a href=\"applyToGraduate.php\">Apply to Graduate</a>");
         }
         if (in_array("alumni", $_SESSION["user_role"])) {
             echo ("<a href=\"transcript.php\">Transcript</a>");
