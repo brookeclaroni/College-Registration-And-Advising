@@ -1,1 +1,47 @@
+<?php
+session_start();
+if (empty($_SESSION["user_id"])) {
+    header("Location: index.php");
+}
+$id = $_SESSION["user_id"];
+$servername = "127.0.0.1";
+$username = "harmonandbrooke";
+$password = "DBteam18!";
+$dbname = "harmonandbrooke";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    // Redirect to user friendly error page
+    die('Error: ' . mysqli_connect_error());
+}
+?>
+
+<!DOCTYPE html>
+
+<head>
+    <title>Apply to Graduate</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <?php
+    include "navbar.php";
+    ?>
+    <div class="main-container">
+        <h1>Apply to Graduate</h1>
+      <form action="applyToGraduate.php" method="post">
+        <b>Student Number</b><br><input type="text" name="id" required ><br><br>
+        <b>Degree Type</b><br>
+        <input type="radio" name="degree" value="masters">Masters<br>
+        <input type="radio" name="degree" value="phd">PhD<br><br>
+        <input type="submit" value="Apply"/>
+  </form>
+    </div>
+</body>
+
+</html> 
 
