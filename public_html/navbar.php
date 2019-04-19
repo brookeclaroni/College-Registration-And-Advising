@@ -28,7 +28,7 @@
         if (in_array("gs", $_SESSION["user_role"]))
         {
             echo ("<a href=\"manageAdvising.php\">Advising</a>");
-            echo ("<a href=\"clearedToGrad.php\">Graduate Students</a>");
+            echo ("<a href=\"clearedToGrad.php\">Graduation</a>");
         }
         echo ("<a href=\"info.php\">Info</a>");
     }
