@@ -3,9 +3,12 @@
 To do for phase 2:
 
 Student
-- [x] enter form 1
+- [x] ms enter form 1
+- [ ] phd enter form 1
 - [x] view form 1
-- [x] apply to graduate (- [ ] debug the gpa calc error)
+- [x] ms apply to graduate
+- [ ] ms encorporate gpa in apply to graduate
+- [ ] phd apply to graduate
 - [ ] registration form
 - [ ] edit personal info w more fields
 
