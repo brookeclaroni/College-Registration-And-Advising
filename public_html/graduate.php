@@ -23,13 +23,15 @@ if (!$conn) {
 		$studentid = $_POST["id"];
 		
 		
-		$assign_query = "UPDATE role SET type = "alumni" WHERE id = ".$studentid."";
+		$assign_query = "UPDATE role SET type = 'alumni' WHERE id = ".$studentid."";
 		if(mysqli_query($conn,$assign_query))
 		{
+			$_SESSION["processGradSuccess"] = "You have successfully proccessed the graduation of student number: ".$studentid."";
 			header('Location: clearedToGrad.php');
 		}
 		else
 		{
-			echo "error";
+			$_SESSION["processGradFailure"] = "There was an error proccessing the graduation of student number: ".$studentid."";
+			header('Location: clearedToGrad.php');
 		}
 ?>
