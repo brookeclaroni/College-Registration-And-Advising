@@ -29,10 +29,15 @@ if (!$conn) {
 
 <body>
     <?php
+    session_start();
     include "navbar.php";
+    echo '<div class="main-container">';
+    echo '<h1>Apply to Graduate</h1>';
+    echo $_SESSION["gradSuccess"];
+    echo $_SESSION["gradFailure"];
     ?>
-    <div class="main-container">
-        <h1>Apply to Graduate</h1>
+   
+        
       <form action="graduateValidate.php" method="post">
         Student Number:<input type="text" name="id" required ><br><br>
         Degree Type:<br>
