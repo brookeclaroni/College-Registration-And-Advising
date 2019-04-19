@@ -34,8 +34,8 @@ if (!$conn) {
     <div class="main-container">
         <h1>Apply to Graduate</h1>
       <form action="graduateValidate.php" method="post">
-        Student Number:<br><br><input type="text" name="id" required ><br><br>
-        Degree Type:<br><br>
+        <h3>Student Number:</h3><input type="text" name="id" required ><br><br>
+        <h3>Degree Type:</h3>
 
         <input type="radio" name="degree" value="masters">Masters<br>
         <input type="radio" name="degree" value="phd">PhD<br>
