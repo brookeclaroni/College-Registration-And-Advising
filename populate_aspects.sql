@@ -19,3 +19,14 @@ INSERT INTO aspects VALUES (
     0,
     0
 );
+
+INSERT INTO aspects VALUES (
+    37373737,
+    NULL,
+    2016, 
+    2018,
+    "MS",
+    1, 
+    0,
+    1
+);
