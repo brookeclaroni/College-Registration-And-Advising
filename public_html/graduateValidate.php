@@ -99,7 +99,7 @@ if (!$conn) {
         $totalGPA = 0.0;
         $error = 0;
         for($x = 0; $x < 12; $x++){
-          if($gradeArray[$x] != "A" && $gradeArray[$x] != "A-" && $gradeArray[$x] != "B+" && $gradeArray[$x] != "B" && $gradeArray[$x] != "IP"){
+          if($gradeArray[$x] != "A" && $gradeArray[$x] != "A-" && $gradeArray[$x] != "B+" && $gradeArray[$x] != "B" && $gradeArray[$x] != "IP" && $gradeArray[$x] != ""){
             $failCounter++;
           }
           if($gradeArray[$x] == "A"){
@@ -136,6 +136,7 @@ if (!$conn) {
        
         if($form1Error == 1)
         {
+            $failMsg .= $totalGPA;
             $failMsg .= "You did not complete the courses you listed on Form 1. ";
         }
     if($failCounter > 2)
