@@ -99,7 +99,7 @@ if (!$conn) {
         $totalGPA = 0.0;
         $error = 0;
         for($x = 0; $x < 12; $x++){
-          if($gradeArray[$x] != "A" && $gradeArray[$x] != "A-" && $gradeArray[$x] != "B+" && $gradeArray[$x] != "B"){
+          if($gradeArray[$x] != "A" && $gradeArray[$x] != "A-" && $gradeArray[$x] != "B+" && $gradeArray[$x] != "B" && $gradeArray[$x] != "IP"){
             $failCounter++;
           }
           if($gradeArray[$x] == "A"){
