@@ -75,19 +75,19 @@ if (!$conn) {
         $queryRemoveNull = "DELETE FROM formOneValid WHERE dept = '' OR courseNumber = ''";
         $result8 = mysqli_query($conn, $queryRemoveNull);
         // check if user chose CSCI 6212
-        $queryCourse1 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6212'";
+        $queryCourse1 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6212' AND id = '$id'";
         $result1 = mysqli_query($conn, $queryCourse1);
         if($result1){
           $courseInt++;
         }
         // check if user chose CSCI 6221
-        $queryCourse2 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6221'";
+        $queryCourse2 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6221' AND id = '$id'";
         $result2 = mysqli_query($conn, $queryCourse2);
         if($result2){
           $courseInt++;
         }
         // check if user chose CSCI 6461
-        $queryCourse3 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6461'";
+        $queryCourse3 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6461' AND id = '$id'";
         $result3 = mysqli_query($conn, $queryCourse3);
         if($result3){
           $courseInt++;
