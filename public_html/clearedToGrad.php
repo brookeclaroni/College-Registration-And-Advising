@@ -46,6 +46,15 @@ function trim_input($data)
     echo '<div class="main-container">';
        
             echo "<h1>Students Cleared for Graduation</h1>";
+	echo "<p style='color:#008000'>";
+    echo $_SESSION["processGradSuccess"];
+    echo "</p>";
+    echo "<p style='color:#FF0000'>";
+    echo $_SESSION["processGradFailure"];
+    echo "</p>";
+    $_SESSION["processGradSuccess"] = "";
+    $_SESSION["processGradSuccess"] = "";
+    echo '<br>';
             $cleared_query =  "SELECT * FROM role r, user u, aspects a WHERE r.uid = u.uid AND u.uid = a.id AND r.type = 'student' AND a.clearedToGrad = 1";
             $cleared_result = mysqli_query($conn, $cleared_query);
             if (mysqli_num_rows($cleared_result) > 0) {
