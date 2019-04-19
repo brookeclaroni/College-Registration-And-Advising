@@ -136,7 +136,6 @@ if (!$conn) {
        
         if($form1Error == 1)
         {
-            $failMsg .=  $creditCount;
             $failMsg .= "You did not complete the courses you listed on Form 1. ";
         }
     if($failCounter > 2)
@@ -144,7 +143,7 @@ if (!$conn) {
         $failError == 1;
         $failMsg .= "You received more than two grades below a B. ";
         }
-    if($totalGPA < 3.0)
+    if($totalGPA !>= 3.0)
         {
         $gpaError == 1;
         $failMsg .= "Your GPA is too low. ";
