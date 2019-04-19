@@ -3,18 +3,17 @@
 To do for phase 2:
 
 Student
+- [ ] edit personal info w more fields
 - [x] ms enter form 1
 - [ ] phd enter form 1
 - [x] view form 1
 - [x] ms apply to graduate
-- [ ] ms encorporate gpa in apply to graduate
 - [ ] phd apply to graduate
 - [ ] registration form
-- [ ] edit personal info w more fields
 
 Alumni
-- [x] view transcript
 - [ ] edit personal info w more fields
+- [x] view transcript
 
 Advisor
 - [ ] edit personal info w more fields
@@ -24,13 +23,16 @@ Advisor
 
 Grad sec
 - [ ] edit personal info w more fields
+- [x] view table of students cleared for graduation 
+- [x] see students balance 
+- [ ] see students transcript 
 - [ ] graduate student 
 - [x] assign advisors to advisorless students 
 - [x] change a students assigned advisor 
 
 Sys admin
-- [ ] make sure register new user goes into user, roles, and aspects
 - [ ] edit personal info w more fields
+- [ ] make sure register new user goes into user, roles, and aspects
 - [ ] give access to everything
 
 Registrar
