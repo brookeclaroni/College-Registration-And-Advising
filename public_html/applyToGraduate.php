@@ -33,8 +33,15 @@ if (!$conn) {
     include "navbar.php";
     echo '<div class="main-container">';
     echo '<h1>Apply to Graduate</h1>';
+    echo "<p style='color:#008000'>";
     echo $_SESSION["gradSuccess"];
+    echo "</p>";
+    echo "<p style='color:#FF0000'>";
     echo $_SESSION["gradFailure"];
+    echo "</p>";
+    $_SESSION["gradSuccess"] = "";
+    $_SESSION["gradFailure"] = "";
+    echo '<br>';
     ?>
    
         
