@@ -2,8 +2,10 @@
 
 To do for phase 2:
 
-Student
+Everyone
 - [ ] edit personal info w more fields
+
+Student
 - [x] ms enter form 1
 - [ ] phd enter form 1
 - [x] view form 1
@@ -12,17 +14,14 @@ Student
 - [ ] registration form
 
 Alumni
-- [ ] edit personal info w more fields
 - [x] view transcript
 
 Advisor
-- [ ] edit personal info w more fields
 - [ ] view advisees' personal info w more fields
 - [x] view advisees' transcript
 - [x] view advisees' form 1
 
 Grad sec
-- [ ] edit personal info w more fields
 - [x] view table of students cleared for graduation 
 - [x] see students balance 
 - [ ] see students transcript 
@@ -31,7 +30,6 @@ Grad sec
 - [x] change a students assigned advisor 
 
 Sys admin
-- [ ] edit personal info w more fields
 - [ ] make sure register new user goes into user, roles, and aspects
 - [ ] give access to everything
 
