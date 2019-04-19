@@ -11,7 +11,7 @@ Student
 - [x] view form 1
 - [x] ms apply to graduate
 - [ ] phd apply to graduate
-- [ ] registration form
+- [ ] fill out registration form
 
 Alumni
 - [x] view transcript
