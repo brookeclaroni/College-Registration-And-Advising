@@ -69,7 +69,7 @@ if (!$conn) {
         $deptTaken[$y] = $row['dept'];
         $numTaken[$y] = $row['cnum'];
           $gradeArray[$y] = $row['grade'];
-          $creditArray[$y] = $row['creditHours'];
+          $creditArray[$y] = $row['credits'];
         $y++;
       }
       sort($deptArray);
