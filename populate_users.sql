@@ -58,3 +58,51 @@ INSERT INTO user VALUES (
     10000.0,
     444444444
 );
+
+INSERT INTO user VALUES (
+    37373737,
+    'password123',
+    'Tom',
+    'tom@gmail.com',
+    'Tom',
+    'Brady',
+    '2400 M St NW, Washington, DC 20052',
+    0.0,
+    37373737
+);
+
+INSERT INTO user VALUES (
+    38383838,
+    'password123',
+    'John',
+    'john@gmail.com',
+    'John',
+    'Doe',
+    '616 23rd St NW, Washington, DC 20052',
+    0.0,
+    38383838
+);
+
+INSERT INTO user VALUES (
+    39393939,
+    'password123',
+    'Jane',
+    'jane@gmail.com',
+    'Jane',
+    'Doe',
+    '616 23rd St NW, Washington, DC 20052',
+    0.0,
+    39393939
+);
+
+INSERT INTO user VALUES (
+    30303030,
+    'password123',
+    'Nick',
+    'nick@gmail.com',
+    'Nick',
+    'Jonas',
+    '1900 F St St NW, Washington, DC 20052',
+    0.0,
+    30303030
+);
