@@ -33,7 +33,7 @@ if (!$conn) {
 		else
 		{
 			$_SESSION["processGradFailure"] = "There was an error proccessing the graduation of student number: ";
-			$_SESSION["processGradSuccess"] .= $studentid;
+			$_SESSION["processGradFailure"] .= $studentid;
 			header('Location: clearedToGrad.php');
 		}
 ?>
