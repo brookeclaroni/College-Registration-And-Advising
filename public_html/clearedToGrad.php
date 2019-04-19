@@ -101,13 +101,8 @@ function trim_input($data)
                     echo "<tr>";
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
-			echo "<td>";
 			echo "<td>" . $row["degreeType"] . "</td>";
-			echo "</td>";
-			
-		     echo '<td>';
 			echo "<td>" . $row["gradYear"] . "</td>";
-                    echo "</td>";
 			
                     echo "</tr>";
                 }
