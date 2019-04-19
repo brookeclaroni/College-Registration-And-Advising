@@ -124,7 +124,7 @@ if (!$conn) {
         $query3 = "SELECT * FROM enrolls WHERE uid = '$id'";
         $result3 = mysqli_query($conn, $query3) or die("Bad Query: $query3");
         $numClasses = mysqli_num_rows($result3);
-        //$totalGPA = $totalGPA / $creditCount;
+        $totalGPA = $totalGPA / $creditCount;
        
         if($form1Error == 1)
         {
