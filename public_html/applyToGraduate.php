@@ -35,7 +35,7 @@ if (!$conn) {
         <h1>Apply to Graduate</h1>
       <form action="graduateValidate.php" method="post">
         <b>Student Number</b><br><input type="text" name="id" required ><br><br>
-        <b>Degree Type</b><br><br>
+        <b><strong>Degree Type:</strong></b><br>
         <input type="radio" name="degree" value="masters">Masters<br>
         <input type="radio" name="degree" value="phd">PhD<br><br>
         <button class="button" style="vertical-align:middle"><span>Apply</span></button>
