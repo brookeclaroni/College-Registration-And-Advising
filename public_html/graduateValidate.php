@@ -131,12 +131,6 @@ if (!$conn) {
        
         if($form1Error == 1)
         {
-            $failMsg .= $y;
-            $failMsg .= " ";
-            $failMsg .= $totalGPA;
-            $failMsg .= " ";
-            $failMsg .=  $creditCount;
-            $failMsg .= " ";
             $failMsg .= "You did not complete the courses you listed on Form 1. ";
         }
     if($failCounter > 2)
