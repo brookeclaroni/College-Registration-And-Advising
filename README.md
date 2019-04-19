@@ -25,7 +25,11 @@ Grad sec
 - [x] view table of students cleared for graduation 
 - [x] see students balance 
 - [x] see students transcript 
-- [ ] graduate student 
+- [x] graduate student 
+- [x] view graduated students 
+- [ ] view degree type of graduated students
+- [ ] view the year they graduated
+- [ ] search by the year they graduated
 - [x] assign advisors to advisorless students 
 - [x] change a students assigned advisor 
 
