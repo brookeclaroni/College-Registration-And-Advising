@@ -38,7 +38,7 @@ if (!$conn) {
         <b>Degree Type</b><br>
         <input type="radio" name="degree" value="masters">Masters<br>
         <input type="radio" name="degree" value="phd">PhD<br><br>
-        <input type="submit" value="Apply"/>
+        <button class="button" style="vertical-align:middle"><span>Apply</span></button>
   </form>
     </div>
 </body>
