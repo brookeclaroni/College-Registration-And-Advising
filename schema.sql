@@ -17,6 +17,7 @@ CREATE TABLE user (
     lname VARCHAR(32),
     address VARCHAR(128),
     balance float(20,2),
+    ssn int,
     PRIMARY KEY (uid)
 );
 
