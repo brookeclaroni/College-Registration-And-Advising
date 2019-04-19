@@ -3,6 +3,7 @@ INSERT INTO aspects VALUES (
     NULL,
     2017, 
     2021,
+    "MS",
     0, 
     0,
     0
@@ -13,6 +14,7 @@ INSERT INTO aspects VALUES (
     NULL,
     2017, 
     2021,
+    "PhD",
     0, 
     0,
     0
