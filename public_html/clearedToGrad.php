@@ -64,8 +64,7 @@ function trim_input($data)
                     echo "<td>" . $row["uid"] . "</td>";
                     echo "<td>" . $row["balance"] . "</td>";
                     echo "<td>";
-                    echo "- view -";
-                            
+                    echo '<form action="transcript.php" method="post"><input type="hidden" name="id" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
                     echo "</td>";
 			echo "<td>";
      echo "- graduate -";
