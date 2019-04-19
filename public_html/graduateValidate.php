@@ -45,7 +45,10 @@ if (!$conn) {
       $numArray = array();
       $gradeArray = array();
       $creditArray = array();
-      $compBool = 0;
+      $creditError=0;
+      $gpaError=0;
+      $form1Error=0;
+      $failMsg= "Your application for graduation could not be submitted due to the following error(s): ";
       // Check connection
       if(!$conn){
         die("Connection failed: " . mysqli_connect_error());
@@ -73,7 +76,10 @@ if (!$conn) {
       sort($deptTaken);
       sort($numTaken);
       if($deptArray == $deptTaken && $numArray == $numTaken){
-        $compBool = 1;
+        $form1Error = 0;
+      }
+      else{
+          $form1Error = 1;
       }
       for($x = 0; $x < 12; $x++){
         $query2 = "SELECT * FROM enrolls e, schedule s, course c
@@ -118,22 +124,44 @@ if (!$conn) {
             $totalGPA = $totalGPA + (2.0 * $creditArray[$x]);
           }
           if($gradeArray[$x] == "IP"){
-            $error = 1;
+            $ipError = 1;
           }
         }
-        $numClasses = 0;
+    
+            $numClasses = 0;
         $query3 = "SELECT * FROM enrolls WHERE uid = '$id'";
         $result3 = mysqli_query($conn, $query3) or die("Bad Query: $query3");
         $numClasses = mysqli_num_rows($result3);
         $totalGPA = $totalGPA / $creditCount;
-        if($error != 1 && $totalGPA >= 3.0 && $failCounter <= 2 && $compBool == 1){
+       
+        if($form1Error == 1)
+        {
+            $failMsg .= "You did not complete the courses you listed on Form 1. ";
+        }
+    if($failCounter > 2)
+        {
+        $failError == 1;
+        $failMsg .= "You received more than two grades below a B. ";
+        }
+    if($totalGPA < 3.0)
+        {
+        $gpaError == 1;
+        $failMsg .= "Your GPA is too low. ";
+        }
+    if($ipError == 1)
+        {
+        $failMsg .= "You still have courses in progress. ";
+        }
+    
+
+        if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1){
           $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE uid = '$id'";
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
             $_SESSION["gradSuccess"] = "Your application for graduation has been submitted and will be reiewed by a graduate secretary soon.";
           header("Location: applyToGraduate.php");
         }
         else{
-            $_SESSION["gradFailure"] = "Your application for graduation has not been submitted due to an error.";
+            $_SESSION["gradFailure"] = $failMsg;
           header("Location: applyToGraduate.php");
         }
       //close connection
