@@ -24,7 +24,7 @@ Advisor
 Grad sec
 - [x] view table of students cleared for graduation 
 - [x] see students balance 
-- [ ] see students transcript 
+- [x] see students transcript 
 - [ ] graduate student 
 - [x] assign advisors to advisorless students 
 - [x] change a students assigned advisor 
