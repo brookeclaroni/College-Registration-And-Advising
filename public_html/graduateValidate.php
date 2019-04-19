@@ -68,8 +68,11 @@ if (!$conn) {
       while($row = mysqli_fetch_array($resultTaken)){
         $deptTaken[$y] = $row['dept'];
         $numTaken[$y] = $row['cnum'];
+          if($row['grade']!="" && $row['grade']!="IP")
+          {
           $gradeArray[$y] = $row['grade'];
           $creditArray[$y] = $row['credits'];
+          }
         $y++;
       }
       sort($deptArray);
@@ -90,7 +93,7 @@ if (!$conn) {
         $failCounter = 0;
         $totalGPA = 0.0;
         $error = 0;
-        for($x = 0; $x < 12; $x++){
+        for($x = 0; $x < $y; $x++){
           if($gradeArray[$x] != "A" && $gradeArray[$x] != "A-" && $gradeArray[$x] != "B+" && $gradeArray[$x] != "B" && $gradeArray[$x] != "IP" && $gradeArray[$x] != ""){
             $failCounter++;
           }
@@ -115,7 +118,7 @@ if (!$conn) {
           if($gradeArray[$x] == "C"){
             $totalGPA = $totalGPA + (2.0 * $creditArray[$x]);
           }
-          if($gradeArray[$x] == "IP"){
+          if($gradeArray[$x] == "IP" || $gradeArray[$x] == ""){
             $ipError = 1;
           }
         }
