@@ -95,7 +95,6 @@ if (!$conn) {
         // check passes if all three courses are chosen
         if($courseInt == 3){
           $courseBool = 1;
-		 $error .= "No error with 3 required courses. ";
         }
 	else{
 	  $error .= "You have not submitted all of the required courses: CSCI 6212, CSCI 6221, and CSCI 6461. ";
