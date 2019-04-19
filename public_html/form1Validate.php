@@ -77,19 +77,19 @@ if (!$conn) {
         // check if user chose CSCI 6212
         $queryCourse1 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6212'";
         $result1 = mysqli_query($conn, $queryCourse1);
-        if($result1){
+        if(mysqli_num_rows($result1)>0){
           $courseInt++;
         }
         // check if user chose CSCI 6221
         $queryCourse2 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6221'";
         $result2 = mysqli_query($conn, $queryCourse2);
-        if($result2){
+        if(mysqli_num_rows($result2)>0){
           $courseInt++;
         }
         // check if user chose CSCI 6461
         $queryCourse3 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6461'";
         $result3 = mysqli_query($conn, $queryCourse3);
-        if($result3){
+        if(mysqli_num_rows($result3)>0){
           $courseInt++;
         }
         // check passes if all three courses are chosen
