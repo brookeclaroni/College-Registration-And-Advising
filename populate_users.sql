@@ -7,7 +7,8 @@ INSERT INTO user VALUES (
     'Billie',
     'Holiday',
     '2121 I St NW, Washington, DC 20052',
-    1.0
+    1.0,
+    888888888
 );
 
 INSERT INTO user VALUES (
@@ -18,7 +19,8 @@ INSERT INTO user VALUES (
     'Diana',
     'Krall',
     '2121 I St NW, Washington, DC 20052',
-    10.0
+    10.0,
+    777777777
 );
 
 INSERT INTO user VALUES (
@@ -29,7 +31,8 @@ INSERT INTO user VALUES (
     'Bhagirath',
     'Narahari',
     '2121 I St NW, Washington, DC 20052',
-    100.0
+    100.0,
+    666666666
 );
 
 INSERT INTO user VALUES (
@@ -40,7 +43,8 @@ INSERT INTO user VALUES (
     'Hyeong-Ah',
     'Choi',
     '2121 I St NW, Washington, DC 20052',
-    1000.0
+    1000.0,
+    555555555
 );
 
 INSERT INTO user VALUES (
@@ -51,5 +55,6 @@ INSERT INTO user VALUES (
     'Alex',
     'Broaddus',
     '43204 Wintergrove Dr, Ashburn, VA 20147',
-    10000.0
+    10000.0,
+    444444444
 );
