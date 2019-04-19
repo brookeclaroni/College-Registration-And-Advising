@@ -13,7 +13,6 @@ if (!empty($_POST["id"])) {
 } else {  
     $id = $_SESSION["user_id"];
 }
-
     
 $servername = "127.0.0.1";
 $username = "harmonandbrooke";
@@ -136,6 +135,10 @@ if (!$conn) {
        
         if($form1Error == 1)
         {
+            $failMsg .= $totalGPA;
+            $failMsg .= "";
+            $failMsg .=  $creditCount;
+            $failMsg .= "";
             $failMsg .= "You did not complete the courses you listed on Form 1. ";
         }
     if($failCounter > 2)
@@ -143,7 +146,7 @@ if (!$conn) {
         $failError == 1;
         $failMsg .= "You received more than two grades below a B. ";
         }
-    if($totalGPA !>= 3.0)
+    if($totalGPA < 3.0)
         {
         $gpaError == 1;
         $failMsg .= "Your GPA is too low. ";
@@ -153,7 +156,6 @@ if (!$conn) {
         $failMsg .= "You still have courses in progress. ";
         }
     
-
         if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1){
           $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE uid = '$id'";
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
