@@ -29,3 +29,22 @@ INSERT INTO role VALUES (
 INSERT INTO role VALUES (
     99999999, 'student'
 );
+
+-- Make Tom Brady an alum
+INSERT INTO role VALUES (
+    37373737, 'alumni'
+);
+
+-- Make John & Jane Doe advisors
+INSERT INTO role VALUES (
+    38383838, 'advisor'
+);
+
+INSERT INTO role VALUES (
+    39393939, 'advisor'
+);
+
+-- Make Kevin Jonas a registrar
+INSERT INTO role VALUES (
+    30303030, 'registrar'
+);
