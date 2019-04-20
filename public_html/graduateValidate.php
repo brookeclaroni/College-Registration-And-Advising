@@ -69,6 +69,12 @@ if (!$conn) {
 		$error .= "You did not select the degree type linked to your account. ";
 		$degreeTypeError = 1;
 	}
+	
+	if($idError == 1 || $degreeTypeError == 1)
+	{
+		$_SESSION["gradFailure"] = $failMsg;
+          header("Location: applyToGraduate.php");
+	}
     
     
     
