@@ -65,26 +65,14 @@ if (!$conn) {
 	$degquery = "SELECT * FROM aspects WHERE id =".$id."";
             $degresult = mysqli_query($conn, $degquery);
             if (mysqli_num_rows($degresult) > 0){
-		    $failMsg .= "query exectuted ";
 		    while ($row = mysqli_fetch_assoc($degresult)) {
-		    $failMsg .= $row["degreeType"];
 		    $degreeType = $row['degreeType'];
 		    }
 	    }
-	
-//     $degreeTypeQuery = "SELECT * FROM aspects WHERE id = '$id'";
-//       $degreeTypeResult = mysqli_query($conn, $degreeTypeQuery) or die("Bad Query: $degreeTypeQuery");
-// 	while($row = mysqli_fetch_array($degreeTypeResult)){
-// 		$degreeType = $row['degreeType'];
-// 	}
      
     if($_POST["degree"] != $degreeType)
 	{
 		$failMsg .= "You did not select the degree type linked to your account. ";
-	    $failMsg .= "You selected: ";
-	         $failMsg .= $_POST["degree"];
-	    $failMsg .= " You are registered for: ";
-			$failMsg .= $degreeType;
 		$degreeTypeError = 1;
 	}
 	
