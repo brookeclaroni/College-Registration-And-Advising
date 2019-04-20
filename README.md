@@ -6,7 +6,7 @@ Everyone
 - [ ] edit personal info w more fields
 
 Student
-- [ ] check that form one enters students name and uid
+- [x] check that form one enters students name and uid
 - [x] ms enter form 1
 - [ ] phd enter form 1
 - [x] view form 1
@@ -30,7 +30,6 @@ Grad sec
 - [x] view graduated students 
 - [x] view degree type of graduated students
 - [x] view the year they graduated
-- [ ] search by the year they graduated
 - [x] assign advisors to advisorless students 
 - [x] change a students assigned advisor 
 
