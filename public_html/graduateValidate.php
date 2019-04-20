@@ -70,6 +70,10 @@ if (!$conn) {
     if($_POST["degree"] != $degreeType)
 	{
 		$failMsg .= "You did not select the degree type linked to your account. ";
+	    $failMsg .= "You selected: ";
+	         $failMsg .= $_POST["degree"];
+	    $failMsg .= " You are registered for: ";
+			$failMsg .= $degreeType;
 		$degreeTypeError = 1;
 	}
 	
