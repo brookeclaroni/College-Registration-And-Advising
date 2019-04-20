@@ -60,9 +60,10 @@ if (!$conn) {
 	
 	
 	
-	$viewQuery="SELECT * FROM thesis";
+	$viewQuery="SELECT * FROM thesis WHERE uid = '$uid'";
 	$viewResult=mysqli_query($conn,$viewQuery);
 	while ($row = mysqli_fetch_assoc($viewResult)) {
+		echo "query result.";
 		$content=$row['data'];
 	}
 	
