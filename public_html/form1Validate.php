@@ -143,6 +143,7 @@ if (!$conn) {
               $result7 = mysqli_query($conn, $queryValid) or die("Bad Query: $queryValid");
             }
           }
+	$_SESSION["success"] = "You have successfully entered Form 1!";
           header("Location: viewForm1.php");
         }
 	
