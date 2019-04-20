@@ -56,7 +56,7 @@ if (!$conn) {
     		$idError = 0;
     	if($_POST["id"] != $_SESSION["user_id"])
 	{
-		$error .= "You did not enter the student ID linked to your account. ";
+		$failMsg .= "You did not enter the student ID linked to your account. ";
 		$idError = 1;
 	}
     
@@ -66,7 +66,7 @@ if (!$conn) {
      
     if($_POST["degree"] != $degreeType)
 	{
-		$error .= "You did not select the degree type linked to your account. ";
+		$failMsg .= "You did not select the degree type linked to your account. ";
 		$degreeTypeError = 1;
 	}
 	
