@@ -38,11 +38,10 @@ if (!$conn) {
     ?>
     <div class="main-container">
         <h1>Thesis</h1>
-        <form action="viewThesis.php" method="post">
-<textarea name ="thesisText" rows="45" cols="125">
-Paste your thesis here as plain text.
-</textarea>
-        <button class="button" style="vertical-align:middle"><span>Submit</span></button>
+        
+        <form action="viewThesis.php" method="post" role="form" enctype="multipart/form-data"> 
+	<input type="file" name="pdf_file" id="pdf_file" accept="application/pdf" />
+	<button id="send" type="submit" name="submit" class="btn btn-success">Submit</button>
 </form>
     </div>
 </body>
