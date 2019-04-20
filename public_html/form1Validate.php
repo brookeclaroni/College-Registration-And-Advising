@@ -67,16 +67,24 @@ if (!$conn) {
 		$error .= "You did not enter the student ID linked to your account. ";
 		$idError = 1;
 	}
-// 	if()
-// 	{
-// 		$error .= "You did not enter the first name linked to your account. ";
-// 		$fnameError = 1;
-// 	}
-// 	if()
-// 	{
-// 		$error .= "You did not enter the last name linked to your account. ";
-// 		$lnameError = 1;
-// 	}
+	
+	$nameQuery = "SELECT * FROM user WHERE uid = ".$_SESSION['user_id']."";
+          $nameResult = mysqli_query($conn, $nameQuery) or die("Bad Query: $query");
+          while($row = mysqli_fetch_array($nameResult)){
+            $sessionFname = $row['fname'];
+            $sessionLname = $row['lname'];
+          }
+	
+	if($_POST["fname"] != $sessionFname)
+	{
+		$error .= "You did not enter the first name linked to your account. ";
+		$fnameError = 1;
+	}
+	if($_POST["lname"] != $sessionLname)
+	{
+		$error .= "You did not enter the last name linked to your account. ";
+		$lnameError = 1;
+	}
 
         // add form data to testing database
         for($x = 0; $x < 12; $x++) {
