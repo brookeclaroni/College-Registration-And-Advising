@@ -117,18 +117,18 @@ if (!$conn) {
                     echo "<td></td>";
                 }
                 echo "</tr>";
-                echo "</table>";
             }
+            echo "</table>";
             
-            else{
-                echo "There are no grades on file.";
-            }
             
             // Finalize gpa calcualtion
             if($gpa > 0)
                 $gpa /= $credit_hours;
             echo "<h1>Current GPA: " . $gpa . "</h1>";
         }
+        else{
+                echo "There are no grades on file.";
+            }
         ?>
     </div>
 </body>
