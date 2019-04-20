@@ -65,7 +65,11 @@ if (!$conn) {
 	$degquery = "SELECT * FROM aspects WHERE id =".$id."";
             $degresult = mysqli_query($conn, $degquery);
             if (mysqli_num_rows($degresult) > 0){
+		    $failMsg .= "query exectuted ";
+		    while ($row = mysqli_fetch_assoc($degresult)) {
+		    $failMsg .= $row["degreeType"];
 		    $degreeType = $row['degreeType'];
+		    }
 	    }
 	
 //     $degreeTypeQuery = "SELECT * FROM aspects WHERE id = '$id'";
