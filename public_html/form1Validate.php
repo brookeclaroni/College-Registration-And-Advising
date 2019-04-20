@@ -164,6 +164,7 @@ if (!$conn) {
 	}
 	
 	if ($degreeType == "PhD"){
+		$courseBool = 1;
         $csciQuery = "SELECT * FROM formOneValid WHERE dept = 'CSCI'";
         $csciResult = mysqli_query($conn, $csciQuery);
         // check passes if the number of outside classes is at most 2
