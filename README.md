@@ -27,8 +27,8 @@ Grad sec
 - [x] see students transcript 
 - [x] graduate student 
 - [x] view graduated students 
-- [ ] view degree type of graduated students
-- [ ] view the year they graduated
+- [x] view degree type of graduated students
+- [x] view the year they graduated
 - [ ] search by the year they graduated
 - [x] assign advisors to advisorless students 
 - [x] change a students assigned advisor 
