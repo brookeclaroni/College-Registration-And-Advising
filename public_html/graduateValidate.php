@@ -39,7 +39,7 @@ if (!$conn) {
 
 <body>
 <?php
-      $id = $_SESSION['id'];
+      $id = $_SESSION['user_id'];
       $deptArray = array();
       $numArray = array();
       $gradeArray = array();
