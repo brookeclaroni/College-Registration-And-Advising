@@ -44,19 +44,14 @@ if (!$conn) {
 //     move_uploaded_file($_FILES["pdf_file"]["tmp_name"],"uploads/pdf/" . $_FILES["pdf_file"]["name"]);
 //     $sql=mysqli_query($con,"INSERT INTO thesis (uid, pdf)VALUES('$uid', '$upload_pdf')");
     
-//     $pdf_file = $_POST['pdf_file'];
-//     $filePointer = fopen($_FILES[$pdf_file]['name'], 'r');
-//     $fileData = fread($filePointer, filesize($_FILES['pdf_file']['name']));
-//     $fileData = addslashes($fileData);
-//     $pdfQuery = "INSERT INTO thesis (uid, data) VALUES( '$uid', '$fileData' )";
-//     if(mysqli_query($conn,$pdfQuery))
-// 		{
-// 			echo "Your thesis was successfully uploaded!";
-// 		}
-// 		else
-// 		{
-// 			echo "There was an issue with uploading your thesis.";
-// 		}
+    $filePointer = fopen($_FILES[$pdf_file]['name'], 'r');
+    $fileData = fread($filePointer, filesize($_FILES['pdf_file']['name']));
+    $fileData = addslashes($fileData);
+    $pdfQuery = "INSERT INTO thesis (uid, data) VALUES( '$uid', '$fileData' )";
+    if(mysqli_query($conn,$pdfQuery))
+		{
+			echo "Your thesis was successfully uploaded!";
+		}
 	
 	
 	
