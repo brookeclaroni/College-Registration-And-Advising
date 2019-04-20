@@ -28,7 +28,7 @@ if (!$conn) {
 <!DOCTYPE html>
 
 <head>
-    <title>Enroll</title>
+    <title>Form 1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
