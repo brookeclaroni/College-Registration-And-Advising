@@ -108,9 +108,7 @@ create table formOne(
   
   CREATE TABLE thesis (
     uid INT,
-    filename VARCHAR(128),
-    type VARCHAR(64),
-    data MEDIUMBLOB,
+    data BLOB,
     PRIMARY KEY (uid),
     FOREIGN KEY (uid) REFERENCES user(uid)
 );
