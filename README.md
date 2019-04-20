@@ -12,6 +12,7 @@ Student
 - [x] view form 1
 - [x] ms apply to graduate
 - [ ] phd apply to graduate
+- [ ] phd submit thesis
 - [ ] fill out registration form
 
 Alumni
@@ -33,6 +34,7 @@ Grad sec
 - [x] view the year they graduated
 - [x] assign advisors to advisorless students 
 - [x] change a students assigned advisor 
+- [ ] approve phd thesis
 
 Sys admin
 - [ ] make sure register new user goes into user, roles, and aspects
