@@ -117,8 +117,12 @@ if (!$conn) {
                     echo "<td></td>";
                 }
                 echo "</tr>";
+                echo "</table>";
             }
-            echo "</table>";
+            
+            else{
+                echo "There are no grades on file.";
+            }
             
             // Finalize gpa calcualtion
             if($gpa > 0)
