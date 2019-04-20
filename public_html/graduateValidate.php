@@ -180,7 +180,7 @@ if (!$conn) {
 	
 	if($idError == 1 || $degreeTypeError == 1)
 	{
-		$failMsg = "";
+		$failMsg= "Your application for graduation could not be submitted due to the following error(s): ";
 		if($idError == 1){
 			$failMsg .= "You did not enter the student ID linked to your account. ";
 		}
