@@ -61,8 +61,11 @@ if (!$conn) {
 	}
     
     $degreeTypeError = 0;
-    $degreeTypeQuery = "SELECT degreeType FROM aspects WHERE id = '$id'";
-      $degreeType = mysqli_query($conn, $degreeTypeQuery) or die("Bad Query: $query");
+    $degreeTypeQuery = "SELECT * FROM aspects WHERE id = '$id'";
+      $degreeTypeResult = mysqli_query($conn, $degreeTypeQuery) or die("Bad Query: $query");
+	while($row = mysqli_fetch_array($degreeTypeResult)){
+		$degreeType = $row["degreeType"];
+	}
      
     if($_POST["degree"] != $degreeType)
 	{
