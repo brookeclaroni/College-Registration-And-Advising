@@ -67,7 +67,7 @@ if (!$conn) {
 	}
 	
         ?>
-   	<object data="data:application/pdf;base64, <?php echo base64_encode($content); ?>" type="application/pdf" style="height:600px;width:100%"></object>
+   	<object data="data:application/pdf;base64,<?php echo base64_encode($content);?>" type="application/pdf" style="height:600px;width:100%"></object>
 
        
     </div>
