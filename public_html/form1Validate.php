@@ -9,11 +9,8 @@ if (
 ) {
     header("Location: index.php");
 }
-if (!empty($_POST["id"])) {
-    $id = $_POST["id"];    
-} else {  
-    $id = $_SESSION["user_id"];
-}
+$id = $_SESSION["user_id"];
+
 $servername = "127.0.0.1";
 $username = "harmonandbrooke";
 $password = "DBteam18!";
@@ -47,6 +44,7 @@ if (!$conn) {
       $courseBool = 0;
       $hoursBool = 0;
       $courseOutsideBool = 1;
+	$csciBool = 1;
       //$alreadyBool = 1;
       $error = "Your Form 1 could not be submitted due to the following error(s): ";
       $deptArray = array(
@@ -94,6 +92,19 @@ if (!$conn) {
         // delete all null rows from table
         $queryRemoveNull = "DELETE FROM formOneValid WHERE dept = '' OR courseNumber = ''";
         $result8 = mysqli_query($conn, $queryRemoveNull);
+	
+	
+	//see what degree they are
+		$degquery = "SELECT * FROM aspects WHERE id =".$id."";
+            $degresult = mysqli_query($conn, $degquery);
+            if (mysqli_num_rows($degresult) > 0){
+		    while ($row = mysqli_fetch_assoc($degresult)) {
+		    $degreeType = $row['degreeType'];
+		    }
+	    }
+	
+	//ms requirement to check for these three courses
+	if ($degreeType == "MS"){
         // check if user chose CSCI 6212
         $queryCourse1 = "SELECT * FROM formOneValid WHERE dept = 'CSCI' AND courseNumber = '6212'";
         $result1 = mysqli_query($conn, $queryCourse1);
@@ -119,6 +130,9 @@ if (!$conn) {
 	else{
 	  $error .= "You have not submitted all of the required courses: CSCI 6212, CSCI 6221, and CSCI 6461. ";
 	}
+	}
+	
+	
         for($x = 0; $x < 15; $x++){
           $queryCredits = "SELECT credits FROM course
             WHERE dept = '$deptArray[$x]'
@@ -129,14 +143,16 @@ if (!$conn) {
             echo "<p>creditInt = ".$creditInt."</p><br>";
           }
         }
-        // check passes if the number of credits is over 30
-        if($creditInt >= 30){
+        // check passes if the number of credits is over 30 for MS and 36 for PhD
+        if(($creditInt >= 30 && $degreeType == "MS") || ($creditInt >= 36 && $degreeType == "PhD")){
           $hoursBool = 1;
         }
 	else{
-	  $error .= "You have not submitted 30 credits. ";
+	  $error .= "You have not submitted enough credits. ";
 	}
-        // check to see if the number of outside classes is at most 2
+        // check to see if the number of outside classes is at most 2 for MS
+	
+	if ($degreeType == "MS"){
         $queryOutside = "SELECT * FROM formOneValid WHERE NOT dept = 'CSCI'";
         $result5 = mysqli_query($conn, $queryOutside);
         // check passes if the number of outside classes is at most 2
@@ -145,6 +161,17 @@ if (!$conn) {
 	  echo "<p>".mysqli_num_rows($result5)."</p>";
 	  $error .= "You have submitted more than 2 classes outside of your major. ";
         }
+	}
+	
+	if ($degreeType == "PhD"){
+        $csciQuery = "SELECT * FROM formOneValid WHERE dept = 'CSCI'";
+        $csciResult = mysqli_query($conn, $csciQuery);
+        // check passes if the number of outside classes is at most 2
+        if(mysqli_num_rows($csciResult) < 10){
+          $csciBool = 0;
+	  $error .= "You have not taken enough classes in the CSCI department. ";
+        }
+	}
 
 	if ($idError == 1 || $fnameError == 1 || $lnameError == 1)
 	{
@@ -166,7 +193,7 @@ if (!$conn) {
 		}
 	}
         // insert the data into form 1 database if all checks pass
-        if($courseBool == 1 && $hoursBool == 1 && $courseOutsideBool == 1  && $idError == 0 && $fnameError == 0 && $lnameError == 0){
+        if($courseBool == 1 && $hoursBool == 1 && $courseOutsideBool == 1  && $csciBool == 1 && $idError == 0 && $fnameError == 0 && $lnameError == 0){
           $deleteQuery = "DELETE FROM formOneValid WHERE id = $id";
           $deleteResult = mysqli_query($conn, $deleteQuery);
 	  $deleteDuplicateQuery = "DELETE FROM formOne WHERE id = $id";
