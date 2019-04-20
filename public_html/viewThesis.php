@@ -63,12 +63,11 @@ if (!$conn) {
 	$viewQuery="SELECT * FROM thesis WHERE uid = '$uid'";
 	$viewResult=mysqli_query($conn,$viewQuery);
 	while ($row = mysqli_fetch_assoc($viewResult)) {
-		echo "query result.";
 		$content=$row['data'];
 	}
 	
         ?>
-   	<object data="data:application/pdf;base64, <?php echo base64_encode($content); ?>" type="application/pdf" style="height:200px;width:60%"></object>
+   	<object data="data:application/pdf;base64, <?php echo base64_encode($content); ?>" type="application/pdf" style="height:600px;width:100%"></object>
 
        
     </div>
