@@ -21,21 +21,6 @@ if (!$conn) {
 }
 ?>
 
-<?php
-$allowedExts = array("pdf");
-$temp = explode(".", $_FILES["pdf_file"]["name"]);
-$extension = end($temp);
-$upload_pdf=$_FILES["pdf_file"]["name"];
-move_uploaded_file($_FILES["pdf_file"]["tmp_name"],"uploads/pdf/" . $_FILES["pdf_file"]["name"]);
-$sql=mysqli_query($con,"INSERT INTO thesis (uid, data)VALUES($uid, $upload_pdf)");
-if($sql){
-	echo "Data Submit Successful";
-	header("Location: viewThesis.php");
-}
-else{
-	echo "Data Submit Error!!";
-}
-?>
 
 <!DOCTYPE html>
 
@@ -55,7 +40,7 @@ else{
     <div class="main-container">
         <h1>Thesis</h1>
         
-        <form method="post" role="form" enctype="multipart/form-data"> 
+        <form action="viewThesis.php" method="post" role="form" enctype="multipart/form-data"> 
 	<input type="file" name="pdf_file" id="pdf_file" accept="application/pdf" />
 	<button id="send" type="submit" name="submit" class="btn btn-success">Submit</button>
 </form>
