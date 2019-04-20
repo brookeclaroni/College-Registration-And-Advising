@@ -44,8 +44,8 @@ if (!$conn) {
     <div class="main-container">
         <h1>Form 1</h1>
         <p>Check prior submission: <form action="viewForm1.php" method="post"><button type="submit">HERE</button></form></p>
-    <form action="form1Validate.php" method="post">Please enter the courses you plan to take to earn your MS degree in Computer Science. You
-may enter at most 12 courses, and your Form 1 must meet the degree requirements.<br>
+    <form action="form1Validate.php" method="post">Please enter the courses you plan to take to earn your degree. You
+may enter at most 15 courses, and your Form 1 must meet the requirements for your repective degree.<br>
         <br>
         <?php
         echo "<p style='color:#FF0000'>";
@@ -128,6 +128,21 @@ may enter at most 12 courses, and your Form 1 must meet the degree requirements.
       <th>12</th>
       <th><input type="text" ID="d12" name="d12" ></th>
       <th><input type="text" ID="num12" name="num12" ></th>
+    </tr>
+      <tr>
+      <th>13</th>
+      <th><input type="text" ID="d13" name="d13" ></th>
+      <th><input type="text" ID="num13" name="num13" ></th>
+    </tr>
+      <tr>
+      <th>14</th>
+      <th><input type="text" ID="d14" name="d14" ></th>
+      <th><input type="text" ID="num14" name="num14" ></th>
+    </tr>
+      <tr>
+      <th>15</th>
+      <th><input type="text" ID="d15" name="d15" ></th>
+      <th><input type="text" ID="num15" name="num15" ></th>
     </tr>
   </table>
     <br><br>
