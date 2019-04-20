@@ -88,7 +88,7 @@ if (!$conn) {
                     die("Error: Failed to get roles<br>");
                 }
 
-                echo ("Login sucessfully<br>");
+                echo ("Login sucessful<br>");
             } else {
                 die("Invalid password / Invalid username<br>");
             }
