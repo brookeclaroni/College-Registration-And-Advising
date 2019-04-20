@@ -66,7 +66,6 @@ if (!$conn) {
       
 	if($_POST["id"] != $_SESSION["user_id"])
 	{
-		$error .= "You did not enter the student ID linked to your account. ";
 		$idError = 1;
 	}
 	
@@ -79,12 +78,10 @@ if (!$conn) {
 	
 	if($_POST["fname"] != $sessionFname)
 	{
-		$error .= "You did not enter the first name linked to your account. ";
 		$fnameError = 1;
 	}
 	if($_POST["lname"] != $sessionLname)
 	{
-		$error .= "You did not enter the last name linked to your account. ";
 		$lnameError = 1;
 	}
 
@@ -148,11 +145,26 @@ if (!$conn) {
 	  echo "<p>".mysqli_num_rows($result5)."</p>";
 	  $error .= "You have submitted more than 2 classes outside of your major. ";
         }
-        echo "<p>courseBool = ".$courseBool."</p><br>";
-        echo "<p>hoursBool = ".$hoursBool."</p><br>";
-        echo "<p>courseOutsideBool = ".$courseOutsideBool."</p><br>";
-        //echo "<p>alreadyBool = ".$alreadyBool."</p>";
-	echo "<p>".$error."</p>";
+
+	if ($idError == 1 || $fnameError == 1 || $lnameError == 1)
+	{
+		$error = "Your Form 1 could not be submitted due to the following error(s): ";
+		if($idError == 1)
+		{
+					$error .= "You did not enter the student ID linked to your account. ";
+
+		}
+			if($fnameError == 1)
+			{
+						$error .= "You did not enter the first name linked to your account. ";
+
+			}
+		if($lnameError == 1)
+		{
+					$error .= "You did not enter the last name linked to your account. ";
+
+		}
+	}
         // insert the data into form 1 database if all checks pass
         if($courseBool == 1 && $hoursBool == 1 && $courseOutsideBool == 1  && $idError == 0 && $fnameError == 0 && $lnameError == 0){
           $deleteQuery = "DELETE FROM formOneValid WHERE id = $id";
