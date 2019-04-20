@@ -75,12 +75,6 @@ if (!$conn) {
 		$failMsg .= "You did not select the degree type linked to your account. ";
 		$degreeTypeError = 1;
 	}
-	
-	if($idError != 0 && $degreeTypeError != 0)
-	{
-	  $_SESSION["gradFailure"] = $failMsg;
-          header("Location: applyToGraduate.php");
-	}
     
     
     
@@ -180,7 +174,7 @@ if (!$conn) {
         $failMsg .= "You still have courses in progress. ";
         }
     
-        if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1){
+        if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1 && $idError != 1 && $degreeTypeError != 1){
           $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE uid = '$id'";
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
              $deleteQuery = "DELETE FROM formOne WHERE id = $id";
