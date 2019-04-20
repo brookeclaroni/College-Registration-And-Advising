@@ -60,12 +60,19 @@ if (!$conn) {
 		$idError = 1;
 	}
     
+     $degreeType = "";
     $degreeTypeError = 0;
-    $degreeTypeQuery = "SELECT * FROM aspects WHERE id = '$id'";
-      $degreeTypeResult = mysqli_query($conn, $degreeTypeQuery) or die("Bad Query: $degreeTypeQuery");
-	while($row = mysqli_fetch_array($degreeTypeResult)){
-		$degreeType = $row['degreeType'];
-	}
+	$degquery = "SELECT * FROM aspects WHERE id =".$id."";
+            $degresult = mysqli_query($conn, $degquery);
+            if (mysqli_num_rows($degresult) > 0){
+		    $degreeType = $row['degreeType'];
+	    }
+	
+//     $degreeTypeQuery = "SELECT * FROM aspects WHERE id = '$id'";
+//       $degreeTypeResult = mysqli_query($conn, $degreeTypeQuery) or die("Bad Query: $degreeTypeQuery");
+// 	while($row = mysqli_fetch_array($degreeTypeResult)){
+// 		$degreeType = $row['degreeType'];
+// 	}
      
     if($_POST["degree"] != $degreeType)
 	{
