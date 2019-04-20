@@ -26,7 +26,7 @@ if ( isset( $_FILES['pdfFile'] ) ) {
 		$source_file = $_FILES['pdfFile']['tmp_name'];
 		echo $source_file;
 		echo "<br>";
-		$dest_file = "upload/".$_FILES['pdfFile']['name'];
+		$dest_file = "http://gwupyterhub.seas.gwu.edu/~brookeclaroni/harmonandbrooke/public_html/upload/".$_FILES['pdfFile']['name'];
 		echo $dest_file;
 		echo "<br>";
 		if (file_exists($dest_file)) {
