@@ -1,6 +1,6 @@
 <html>
 <body>
-<textarea rows="50" cols="150">
+<textarea rows="45" cols="125">
 Paste your thesis here as plain text.
 </textarea>
 </body>
