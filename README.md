@@ -11,7 +11,7 @@ Student
 - [x] phd enter form 1
 - [x] view form 1
 - [x] ms apply to graduate
-- [ ] phd apply to graduate
+- [x] phd apply to graduate
 - [ ] phd submit thesis
 - [ ] fill out registration form
 
