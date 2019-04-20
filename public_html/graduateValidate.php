@@ -47,6 +47,7 @@ if (!$conn) {
       $creditError=0;
       $gpaError=0;
       $form1Error=0;
+	$completeForm1Error=1;
       $failMsg= "Your application for graduation could not be submitted due to the following error(s): ";
       // Check connection
       if(!$conn){
@@ -56,7 +57,6 @@ if (!$conn) {
     		$idError = 0;
     	if($_POST["id"] != $_SESSION["user_id"])
 	{
-		$failMsg .= "You did not enter the student ID linked to your account. ";
 		$idError = 1;
 	}
     
@@ -72,7 +72,6 @@ if (!$conn) {
      
     if($_POST["degree"] != $degreeType)
 	{
-		$failMsg .= "You did not select the degree type linked to your account. ";
 		$degreeTypeError = 1;
 	}
     
@@ -83,6 +82,7 @@ if (!$conn) {
       $query = "SELECT * FROM formOne WHERE id = '$id'";
       $result = mysqli_query($conn, $query) or die("Bad Query: $query");
       while($row = mysqli_fetch_array($result)) {
+	      $completeForm1Error = 0;
           $deptArray[$x] = $row['dept'];
           $numArray[$x] = $row['courseNumber'];
           $x++;
@@ -155,7 +155,11 @@ if (!$conn) {
         $numClasses = mysqli_num_rows($result3);
         $totalGPA = $totalGPA / $creditCount;
        
-        if($form1Error == 1)
+	if ($completeForm1Error ==1)
+	{
+		$failMsg .= "You did not submit Form 1. ";
+	}
+        else if($form1Error == 1)
         {
             $failMsg .= "You did not complete the courses you listed on Form 1. ";
         }
@@ -173,8 +177,19 @@ if (!$conn) {
         {
         $failMsg .= "You still have courses in progress. ";
         }
+	
+	if($idError == 1 || $degreeTypeError == 1)
+	{
+		$failMsg = "";
+		if($idError == 1){
+			$failMsg .= "You did not enter the student ID linked to your account. ";
+		}
+			if($degreeTypeError == 1){
+				$failMsg .= "You did not select the degree type linked to your account. ";
+			}
+	}
     
-        if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1 && $idError != 1 && $degreeTypeError != 1){
+        if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1 && $idError != 1 && $degreeTypeError != 1  && $completeForm1Error != 1){
           $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE uid = '$id'";
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
              $deleteQuery = "DELETE FROM formOne WHERE id = $id";
