@@ -52,6 +52,7 @@ function trim_input($data)
                     <tr>
                         <th>User Name</th>
                         <th>User ID</th>
+                        <th>Email</th>
                         <th>Address</th>
                         <th>Transcript</th>
                         <th>Form 1</th>
@@ -60,6 +61,7 @@ function trim_input($data)
                     echo "<tr>";
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
+                    echo "<td>" . $row["email"] . "</td>";
                     echo "<td>" . $row["address"] . "</td>";
                     echo "<td>";
                     echo '<form action="transcript.php" method="post"><input type="hidden" name="id" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
