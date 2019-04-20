@@ -151,6 +151,8 @@ if (!$conn) {
         if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1){
           $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE uid = '$id'";
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
+             $deleteQuery = "DELETE FROM formOne WHERE id = $id";
+          $deleteResult = mysqli_query($conn, $deleteQuery);
             $_SESSION["gradSuccess"] = "Your application for graduation has been submitted and will be reiewed by a graduate secretary soon.";
           header("Location: applyToGraduate.php");
         }
