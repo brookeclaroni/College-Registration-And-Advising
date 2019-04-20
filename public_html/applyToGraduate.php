@@ -48,8 +48,8 @@ if (!$conn) {
       <form action="graduateValidate.php" method="post">
         Student Number:<input type="text" name="id" required ><br><br>
         Degree Type:<br>
-        <input type="radio" name="degree" value="masters">Masters<br>
-        <input type="radio" name="degree" value="phd">PhD<br>
+        <input type="radio" name="degree" value="MS">MS<br>
+        <input type="radio" name="degree" value="PhD">PhD<br>
          <br>
         <button class="button" style="vertical-align:middle"><span>Apply</span></button>
   </form>
