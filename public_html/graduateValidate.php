@@ -47,6 +47,7 @@ if (!$conn) {
       $creditError=0;
       $gpaError=0;
       $form1Error=0;
+	$thesisError=0;
 	$completeForm1Error=1;
       $failMsg= "Your application for graduation could not be submitted due to the following error(s): ";
       // Check connection
@@ -61,20 +62,21 @@ if (!$conn) {
 	}
     
      $degreeType = "";
+	$thesisApproved = "";
     $degreeTypeError = 0;
 	$degquery = "SELECT * FROM aspects WHERE id =".$id."";
             $degresult = mysqli_query($conn, $degquery);
             if (mysqli_num_rows($degresult) > 0){
 		    while ($row = mysqli_fetch_assoc($degresult)) {
 		    $degreeType = $row['degreeType'];
+			    $thesisApproved = $row['approveThesis'];
 		    }
 	    }
      
     if($_POST["degree"] != $degreeType)
 	{
 		$degreeTypeError = 1;
-	}
-    
+	}   
     
     
       // check if classes taken are equivalent to form1
@@ -163,12 +165,12 @@ if (!$conn) {
         {
             $failMsg .= "You did not complete the courses you listed on Form 1. ";
         }
-    if($failCounter > 2)
+    if(($failCounter > 2 && $degreeType == "MS") || ($failCounter > 1 && $degreeType == "PhD"))
         {
         $failError == 1;
-        $failMsg .= "You received more than two grades below a B. ";
+        $failMsg .= "You received too many grades below a B. ";
         }
-    if($totalGPA < 3.0)
+    if(($totalGPA < 3.0 && $degreeType == "MS") || ($totalGPA < 3.5 && $degreeType == "PhD"))
         {
         $gpaError == 1;
         $failMsg .= "Your GPA is too low. ";
@@ -177,6 +179,11 @@ if (!$conn) {
         {
         $failMsg .= "You still have courses in progress. ";
         }
+	if($thesisApproved != 1 && $degreeType == "PhD")
+	{
+		$thesisError = 1;
+		$failMsg .= "You do not have an approved thesis on file. ";
+	}
 	
 	if($idError == 1 || $degreeTypeError == 1)
 	{
@@ -189,7 +196,7 @@ if (!$conn) {
 			}
 	}
     
-        if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1 && $idError != 1 && $degreeTypeError != 1  && $completeForm1Error != 1){
+        if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1 && $idError != 1 && $degreeTypeError != 1  && $completeForm1Error != 1  && $thesisError != 1){
           $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE uid = '$id'";
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
              $deleteQuery = "DELETE FROM formOne WHERE id = $id";
