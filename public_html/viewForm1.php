@@ -42,7 +42,15 @@ if (!$conn) {
     ?>
     <div class="main-container">
         <h1>Form 1</h1>
+        
         <?php
+        echo "<p style='color:#008000'>";
+    echo $_SESSION["success"];
+    echo "</p>";
+   
+    $_SESSION["success"] = "";
+
+    echo '<br>';
     // Show only form 1 inputs from the student selected
         $query = "SELECT * FROM formOne f, course c WHERE f.id=" . $uid . " AND f.dept = c.dept AND f.courseNumber = c.cnum";
         $result = mysqli_query($conn, $query);
