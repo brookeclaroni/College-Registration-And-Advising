@@ -39,7 +39,7 @@ if (!$conn) {
 
 <body>
 <?php
-      $id = $_POST['id'];
+      $id = $_SESSION['id'];
       $deptArray = array();
       $numArray = array();
       $gradeArray = array();
@@ -52,6 +52,26 @@ if (!$conn) {
       if(!$conn){
         die("Connection failed: " . mysqli_connect_error());
       }
+    
+    		$idError = 0;
+    	if($_POST["id"] != $_SESSION["user_id"])
+	{
+		$error .= "You did not enter the student ID linked to your account. ";
+		$idError = 1;
+	}
+    
+    $degreeTypeError = 0;
+    $degreeTypeQuery = "SELECT degreeType FROM aspects WHERE id = '$id'";
+      $degreeType = mysqli_query($conn, $degreeTypeQuery) or die("Bad Query: $query");
+     
+    if($_POST["degree"] != $degreeType)
+	{
+		$error .= "You did not select the degree type linked to your account. ";
+		$degreeTypeError = 1;
+	}
+    
+    
+    
       // check if classes taken are equivalent to form1
       $x = 0;
       $query = "SELECT * FROM formOne WHERE id = '$id'";
