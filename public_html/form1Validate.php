@@ -45,7 +45,7 @@ if (!$conn) {
       $hoursBool = 0;
       $courseOutsideBool = 1;
       //$alreadyBool = 1;
-      $error = "Error: ";
+      $error = "Your Form 1 could not be submitted due to the following error(s): ";
       $deptArray = array(
         $_POST['d1'], $_POST['d2'], $_POST['d3'],
         $_POST['d4'], $_POST['d5'], $_POST['d6'],
