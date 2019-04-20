@@ -26,14 +26,15 @@ if ( isset( $_FILES['pdfFile'] ) ) {
 		$source_file = $_FILES['pdfFile']['tmp_name'];
 		echo $source_file;
 		echo "<br>";
-		$dest_file = "http://gwupyterhub.seas.gwu.edu/~brookeclaroni/harmonandbrooke/public_html/upload/".$_FILES['pdfFile']['name'];
+		$dest_dir = "http://gwupyterhub.seas.gwu.edu/~brookeclaroni/harmonandbrooke/public_html/upload";
 		echo $dest_file;
+		$name = basename($_FILES["pdfFile"]["tmp_name"]);
 		echo "<br>";
 		if (file_exists($dest_file)) {
 			print "The file name already exists!!";
 		}
 		else {
-			move_uploaded_file( $source_file, $dest_file )
+			move_uploaded_file( $source_dir, "$dest_dir/$name" )
 			or die ("Error!!");
 			if($_FILES['pdfFile']['error'] == 0) {
 				print "Pdf file uploaded successfully!";
