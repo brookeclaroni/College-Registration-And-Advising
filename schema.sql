@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS thesis;
 DROP TABLE IF EXISTS formOne;
 DROP TABLE IF EXISTS formOneValid;
 DROP TABLE IF EXISTS enrolls;
@@ -104,6 +105,15 @@ create table formOne(
   dept varchar(100),
   primary key(num)
   );
+  
+  CREATE TABLE thesis (
+    uid INT,
+    filename VARCHAR(128),
+    type VARCHAR(64),
+    data MEDIUMBLOB,
+    PRIMARY KEY (uid),
+    FOREIGN KEY (uid) REFERENCES user(uid)
+);
 --
 
 source populate_users.sql;
