@@ -58,6 +58,14 @@ if (!$conn) {
 			echo "There was an issue with uploading your thesis.";
 		}
 	
+	
+	
+	$sqll="select * from thesis";
+	$query=mysql_query($sqll) or die(mysql_error());
+	$result=mysql_fetch_array($query);
+	$content=$result['pdf'];
+	echo '<object data="data:application/pdf;base64,<?php echo base64_encode(content) ?>" type="application/pdf" style="height:200px;width:60%"></object>';
+	
     ?>
    
        
