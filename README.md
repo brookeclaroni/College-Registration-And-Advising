@@ -21,6 +21,7 @@ Advisor
 - [x] view advisees' personal info w more fields
 - [x] view advisees' transcript
 - [x] view advisees' form 1
+- [ ] sign off registration form
 
 Grad sec
 - [x] view table of students cleared for graduation 
