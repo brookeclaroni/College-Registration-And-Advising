@@ -39,6 +39,9 @@ if (!$conn) {
 
 <body>
 <?php
+	 $idError = 0;
+	 $fnameError = 0;
+	 $lnameError = 0;
       $courseInt = 0;
       $creditInt = 0;
       $courseBool = 0;
@@ -59,12 +62,22 @@ if (!$conn) {
         $_POST['num10'], $_POST['num11'], $_POST['num12']
       );
       
-//       $queryAlready = "SELECT * FROM formOne WHERE id = '$id'";
-//       $alreadyResult = mysqli_query($conn, $queryAlready);
-//       if(mysqli_num_rows($alreadyResult) > 0){
-//         $alreadyBool = 0;
-// 	$error .= "You have already submitted a Form 1. ";
-//       }
+	if($_POST["id"] != $_SESSION["user_id"])
+	{
+		$error .= "You did not enter the student ID linked to your account. ";
+		$idError = 1;
+	}
+// 	if()
+// 	{
+// 		$error .= "You did not enter the first name linked to your account. ";
+// 		$fnameError = 1;
+// 	}
+// 	if()
+// 	{
+// 		$error .= "You did not enter the last name linked to your account. ";
+// 		$lnameError = 1;
+// 	}
+
         // add form data to testing database
         for($x = 0; $x < 12; $x++) {
           $queryInsert = "INSERT INTO formOneValid(id, courseNumber, dept)
@@ -131,7 +144,7 @@ if (!$conn) {
         //echo "<p>alreadyBool = ".$alreadyBool."</p>";
 	echo "<p>".$error."</p>";
         // insert the data into form 1 database if all checks pass
-        if($courseBool == 1 && $hoursBool == 1 && $courseOutsideBool == 1){
+        if($courseBool == 1 && $hoursBool == 1 && $courseOutsideBool == 1  && $idError == 0 && $fnameError == 0 && $lnameError == 0){
           $deleteQuery = "DELETE FROM formOneValid WHERE id = $id";
           $deleteResult = mysqli_query($conn, $deleteQuery);
 	  $deleteDuplicateQuery = "DELETE FROM formOne WHERE id = $id";
