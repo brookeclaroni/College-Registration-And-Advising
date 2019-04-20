@@ -45,29 +45,30 @@ if (!$conn) {
 //     $sql=mysqli_query($con,"INSERT INTO thesis (uid, pdf)VALUES('$uid', '$upload_pdf')");
     
     
-    $filePointer = fopen($_FILES['pdf_file']['name'], 'r');
-    $fileData = fread($filePointer, filesize($_FILES['pdf_file']['name']));
-    $fileData = addslashes($fileData);
-    $pdfQuery = "INSERT INTO thesis (uid, data) VALUES( '$uid', '$fileData' )";
-    if(mysqli_query($conn,$pdfQuery))
-		{
-			echo "Your thesis was successfully uploaded!";
-		}
-		else
-		{
-			echo "There was an issue with uploading your thesis.";
-		}
+//     $filePointer = fopen($_FILES['pdf_file']['name'], 'r');
+//     $fileData = fread($filePointer, filesize($_FILES['pdf_file']['name']));
+//     $fileData = addslashes($fileData);
+//     $pdfQuery = "INSERT INTO thesis (uid, data) VALUES( '$uid', '$fileData' )";
+//     if(mysqli_query($conn,$pdfQuery))
+// 		{
+// 			echo "Your thesis was successfully uploaded!";
+// 		}
+// 		else
+// 		{
+// 			echo "There was an issue with uploading your thesis.";
+// 		}
 	
 	
 	
-	$sqll="select * from thesis";
-	$query=mysql_query($sqll) or die(mysql_error());
-	$result=mysql_fetch_array($query);
-	$content=$result['pdf'];
-	echo '<object data="data:application/pdf;base64,<?php echo base64_encode(content) ?>" type="application/pdf" style="height:200px;width:60%"></object>';
+	$viewQuery="SELECT * FROM thesis";
+	$viewResult=mysqli_query($conn,$viewQuery);
+	while ($row = mysqli_fetch_assoc($viewResult)) {
+		$content=$row['data'];
+	}
 	
-    ?>
-   
+        ?>
+   	<object data="data:application/pdf;base64, <?php echo base64_encode($content); ?>" type="application/pdf" style="height:200px;width:60%"></object>
+
        
     </div>
 </body>
