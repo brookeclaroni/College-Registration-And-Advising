@@ -194,7 +194,7 @@ if (!$conn) {
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
              $deleteQuery = "DELETE FROM formOne WHERE id = $id";
           $deleteResult = mysqli_query($conn, $deleteQuery);
-            $_SESSION["gradSuccess"] = "Your application for graduation has been submitted and will be reiewed by a graduate secretary soon.";
+            $_SESSION["gradSuccess"] = "Your application for graduation has been submitted and will be reviewed by a graduate secretary soon.";
           header("Location: applyToGraduate.php");
         }
         else{
