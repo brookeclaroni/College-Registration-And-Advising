@@ -6,6 +6,7 @@ Everyone
 - [ ] edit personal info w more fields
 
 Student
+- [ ] check that form one enters students name and uid
 - [x] ms enter form 1
 - [ ] phd enter form 1
 - [x] view form 1
@@ -17,7 +18,7 @@ Alumni
 - [x] view transcript
 
 Advisor
-- [ ] view advisees' personal info w more fields
+- [x] view advisees' personal info w more fields
 - [x] view advisees' transcript
 - [x] view advisees' form 1
 
