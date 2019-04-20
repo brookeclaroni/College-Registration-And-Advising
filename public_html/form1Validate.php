@@ -53,13 +53,15 @@ if (!$conn) {
         $_POST['d1'], $_POST['d2'], $_POST['d3'],
         $_POST['d4'], $_POST['d5'], $_POST['d6'],
         $_POST['d7'], $_POST['d8'], $_POST['d9'],
-        $_POST['d10'], $_POST['d11'], $_POST['d12']
+        $_POST['d10'], $_POST['d11'], $_POST['d12'],
+	$_POST['d13'], $_POST['d14'], $_POST['d15']
       );
       $numArray = array(
         $_POST['num1'], $_POST['num2'], $_POST['num3'],
         $_POST['num4'], $_POST['num5'], $_POST['num6'],
         $_POST['num7'], $_POST['num8'], $_POST['num9'],
-        $_POST['num10'], $_POST['num11'], $_POST['num12']
+        $_POST['num10'], $_POST['num11'], $_POST['num12'],
+	$_POST['num13'], $_POST['num14'], $_POST['num15']
       );
       
 	if($_POST["id"] != $_SESSION["user_id"])
@@ -87,7 +89,7 @@ if (!$conn) {
 	}
 
         // add form data to testing database
-        for($x = 0; $x < 12; $x++) {
+        for($x = 0; $x < 15; $x++) {
           $queryInsert = "INSERT INTO formOneValid(id, courseNumber, dept)
             VALUES ('$id', '$numArray[$x]', '$deptArray[$x]')";
           $result = mysqli_query($conn, $queryInsert);
@@ -120,7 +122,7 @@ if (!$conn) {
 	else{
 	  $error .= "You have not submitted all of the required courses: CSCI 6212, CSCI 6221, and CSCI 6461. ";
 	}
-        for($x = 0; $x < 12; $x++){
+        for($x = 0; $x < 15; $x++){
           $queryCredits = "SELECT credits FROM course
             WHERE dept = '$deptArray[$x]'
               AND cnum = '$numArray[$x]'";
@@ -157,7 +159,7 @@ if (!$conn) {
           $deleteResult = mysqli_query($conn, $deleteQuery);
 	  $deleteDuplicateQuery = "DELETE FROM formOne WHERE id = $id";
           $deleteDuplicateResult = mysqli_query($conn, $deleteDuplicateQuery);
-          for($x = 0; $x < 12; $x++) {
+          for($x = 0; $x < 15; $x++) {
             if($numArray[$x] != '' && $deptArray[$x] != ''){
               $queryValid = "INSERT INTO formOne(id, courseNumber, dept)
                 VALUES ('$id', '$numArray[$x]', '$deptArray[$x]')";
