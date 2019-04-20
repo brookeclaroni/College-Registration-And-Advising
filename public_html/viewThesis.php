@@ -36,7 +36,25 @@ if (!$conn) {
     include "navbar.php";
     echo '<div class="main-container">';
     echo '<h1>Thesis</h1>';
-    echo "Thanks for submitting";
+    
+//     $allowedExts = array("pdf");
+//     $temp = explode(".", $_FILES["pdf_file"]["name"]);
+//     $extension = end($temp);
+//     $upload_pdf=$_FILES["pdf_file"]["name"];
+//     move_uploaded_file($_FILES["pdf_file"]["tmp_name"],"uploads/pdf/" . $_FILES["pdf_file"]["name"]);
+//     $sql=mysqli_query($con,"INSERT INTO thesis (uid, pdf)VALUES('$uid', '$upload_pdf')");
+    
+    
+    $filePointer = fopen($_FILES['pdf_file']['name'], 'r');
+    $fileData = fread($filePointer, filesize($_FILES['pdf_file']['name']));
+    $fileData = addslashes($fileData);
+    $sql = "INSERT INTO thesis (uid, data) VALUES( $uid, $fileData )";
+    if($sql){
+	     echo "Your thesis was successfully uploaded!";
+    }
+    else{
+	     echo "There was an issue with uploading your thesis.";
+    }
     ?>
    
        
