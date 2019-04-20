@@ -76,9 +76,9 @@ if (!$conn) {
 		$degreeTypeError = 1;
 	}
 	
-	if($idError == 1 || $degreeTypeError == 1)
+	if(($idError == 1) || ($degreeTypeError == 1))
 	{
-		$_SESSION["gradFailure"] = $failMsg;
+	  $_SESSION["gradFailure"] = $failMsg;
           header("Location: applyToGraduate.php");
 	}
     
