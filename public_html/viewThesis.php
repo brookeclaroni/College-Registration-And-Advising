@@ -34,9 +34,8 @@ if (!$conn) {
 <body>
     <?php
     include "navbar.php";
-    echo '<h1>Thesis</h1>';
     echo '<div class="main-container">';
-    
+    echo '<h1>Thesis</h1>';
     echo $_POST["thesisText"];
     ?>
    
