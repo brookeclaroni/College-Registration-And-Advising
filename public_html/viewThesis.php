@@ -48,13 +48,16 @@ if (!$conn) {
     $filePointer = fopen($_FILES['pdf_file']['name'], 'r');
     $fileData = fread($filePointer, filesize($_FILES['pdf_file']['name']));
     $fileData = addslashes($fileData);
-    $sql = "INSERT INTO thesis (uid, data) VALUES( $uid, $fileData )";
-    if($sql){
-	     echo "Your thesis was successfully uploaded!";
-    }
-    else{
-	     echo "There was an issue with uploading your thesis.";
-    }
+    $pdfQuery = "INSERT INTO thesis (uid, data) VALUES( '$uid', '$fileData' )";
+    if(mysqli_query($conn,$pdfQuery))
+		{
+			echo "Your thesis was successfully uploaded!";
+		}
+		else
+		{
+			echo "There was an issue with uploading your thesis.";
+		}
+	
     ?>
    
        
