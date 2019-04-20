@@ -44,8 +44,8 @@ if (!$conn) {
 //     move_uploaded_file($_FILES["pdf_file"]["tmp_name"],"uploads/pdf/" . $_FILES["pdf_file"]["name"]);
 //     $sql=mysqli_query($con,"INSERT INTO thesis (uid, pdf)VALUES('$uid', '$upload_pdf')");
     
-    
-    $filePointer = fopen($_FILES['pdf_file']['name'], 'r');
+    $pdf_file = $_POST['pdf_file'];
+    $filePointer = fopen($_FILES[$pdf_file]['name'], 'r');
     $fileData = fread($filePointer, filesize($_FILES['pdf_file']['name']));
     $fileData = addslashes($fileData);
     $pdfQuery = "INSERT INTO thesis (uid, data) VALUES( '$uid', '$fileData' )";
