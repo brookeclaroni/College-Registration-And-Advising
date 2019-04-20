@@ -8,7 +8,7 @@ Everyone
 Student
 - [x] check that form one enters students name and uid
 - [x] ms enter form 1
-- [ ] phd enter form 1
+- [x] phd enter form 1
 - [x] view form 1
 - [x] ms apply to graduate
 - [ ] phd apply to graduate
