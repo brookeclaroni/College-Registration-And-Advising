@@ -38,6 +38,7 @@ if (!$conn) {
     <div class="main-container">
         <h1>Course List</h1>
         <?php
+        if(in_array("student", $_SESSION["user_role"])){
         $adquery = "select reviewForm from aspects where id='$uid'";
         $adresult = mysqli_query($conn, $adquery);
         if (mysqli_num_rows($adresult) > 0) {
@@ -88,6 +89,32 @@ if (!$conn) {
         
         if($form == 1){
         // Get a list of courses
+        $query = "SELECT *, fname, lname FROM course LEFT JOIN user ON course.instructor_id=user.uid";
+        $result = mysqli_query($conn, $query);
+        if (mysqli_num_rows($result) > 0) {
+            echo "<table>
+                    <tr>
+                        <th>Course</th>
+                        <th>Title</th>
+                        <th>Instructor</th>
+                        <th>Credits</th>
+                    </tr>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td><a href=\"course.php?cid=" . $row["cid"] . "\">" . $row["dept"] . " " . $row["cnum"] . "</a></th>";
+                echo "<td>" . $row["title"] . "</td>";
+                echo "<td>" . $row["fname"] . " " . $row["lname"] . "</td>";
+                echo "<td>" . $row["credits"] . "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "There are no courses being offered at this time.";
+        }
+      }
+      }
+      else{
+              // Get a list of courses
         $query = "SELECT *, fname, lname FROM course LEFT JOIN user ON course.instructor_id=user.uid";
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
