@@ -36,6 +36,7 @@
         }
         if (in_array("advisor", $_SESSION["user_role"])) {
             echo ("<a href=\"manageAdvisees.php\">Manage Advisees</a>");
+            echo ("<a href=\"approveRegForms.php\">Approve Forms</a>");
         }
         if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("instructor", $_SESSION["user_role"])) {
             echo ("<a href=\"manage.php\">Manage</a>");
