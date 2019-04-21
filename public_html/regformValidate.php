@@ -37,11 +37,11 @@ $dbname = "harmonandbrooke";
     <div class="main-container">
         <?php
         
-        $query = "select uid from regiform where uid='$uid'";
+        $query = "select * from regiform where uid='$uid'";
         $result = mysqli_query($conn,$query);
         if (mysqli_num_rows($result) > 0) {
             $delquery = "DELETE FROM regiform WHERE uid='$uid'";
-            mysqli_query($conn, $query);
+            mysqli_query($conn, $delquery);
         }
         
         
