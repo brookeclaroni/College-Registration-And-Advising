@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS thesis;
 DROP TABLE IF EXISTS formOne;
+DROP TABLE IF EXISTS regiform;
 DROP TABLE IF EXISTS formOneValid;
 DROP TABLE IF EXISTS enrolls;
 DROP TABLE IF EXISTS schedule;
@@ -112,6 +113,15 @@ create table formOne(
     PRIMARY KEY (uid),
     FOREIGN KEY (uid) REFERENCES user(uid)
 );
+
+create table regiform(
+  num int auto_increment,
+  uid int,
+  courseNumber int,
+  dept varchar(100),
+  primary key(num),
+  FOREIGN KEY (uid) REFERENCES user(uid)
+  );
 --
 
 source populate_users.sql;
@@ -120,3 +130,4 @@ source populate_aspects.sql;
 source populate_courses.sql;
 source populate_schedule.sql;
 source populate_enrolls.sql;
+source populate_regiform.sql;
