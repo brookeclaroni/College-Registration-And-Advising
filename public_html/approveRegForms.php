@@ -58,7 +58,7 @@ if (!$conn) {
                     echo "<td>" . $row["email"] . "</td>";
                     echo "<td>" . $row["address"] . "</td>";
                     echo "<td>";
-                    echo '<form action="viewRegForm.php" method="post"><input type="hidden" name="id" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
+                    echo '<form action="viewRegForm.php" method="post"><input type="hidden" name="idd" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
                     echo "</td>";
                     echo "</tr>";
                 }
