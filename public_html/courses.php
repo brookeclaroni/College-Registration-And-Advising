@@ -39,7 +39,7 @@ if (!$conn) {
         <h1>Course List</h1>
         <?php
         $adquery = "select reviewForm from aspects where id='$uid'";
-        $adresult = mysqli_query($conn, $query);
+        $adresult = mysqli_query($conn, $adquery);
         if (mysqli_num_rows($adresult) > 0) {
           while ($row = mysqli_fetch_assoc($adresult)) {
             $form = $row["reviewForm"];
