@@ -115,11 +115,9 @@ create table formOne(
 );
 
 create table regiform(
-  num int auto_increment,
   uid int,
   courseNumber int,
   dept varchar(100),
-  primary key(num),
   FOREIGN KEY (uid) REFERENCES user(uid)
   );
 --
