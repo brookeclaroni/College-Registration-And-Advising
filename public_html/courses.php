@@ -38,6 +38,19 @@ if (!$conn) {
     <div class="main-container">
         <h1>Course List</h1>
         <?php
+        $adquery = "select reviewForm from aspects where id='$uid'";
+        $adresult = mysqli_query($conn, $query);
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+            $form = $row["reviewForm"];
+          }
+        }
+        
+        if($form == 0){
+          echo "Your advisor must approve your form before you may register";
+        }
+        
+        if($form == 1){
         // Get a list of courses
         $query = "SELECT *, fname, lname FROM course LEFT JOIN user ON course.instructor_id=user.uid";
         $result = mysqli_query($conn, $query);
@@ -61,6 +74,7 @@ if (!$conn) {
         } else {
             echo "There are no courses being offered at this time.";
         }
+      }
         ?>
     </div>
 </body>
