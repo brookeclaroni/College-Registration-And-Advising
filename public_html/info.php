@@ -54,12 +54,16 @@ function trim_input($data)
                         <th>User Name</th>
                         <th>User ID</th>
                         <th>Address</th>
+                        <th>Email</th>
+                        <th>Balance</th>
                     </tr>";
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                 echo "<td>" . $row["uid"] . "</td>";
                 echo "<td>" . $row["address"] . "</td>";
+                echo "<td>" . $row["email"] . "</td>";
+                echo "<td>" . $row["balance"] . "</td>";
                 echo "</tr>";
             }
             echo "</table>";
@@ -87,11 +91,24 @@ function trim_input($data)
             <input type="password" name="npass" id="npass">
             <button type="submit">Change</button>
         </form>
+        
+        <h1>Change Address</h1>
+        <form method="post">
+            <input type="text" name="naddress" id="naddress">
+            <button type="submit">Change</button>
+        </form>
+        <h1>Change Email</h1>
+        <form method="post">
+            <input type="text" name="nemail" id="nemail">
+            <button type="submit">Change</button>
+        </form>
+        
         <h1>Log out</h1>
         <form method="post">
             <input type="hidden" name="logout" value="true">
             <button type="submit">Logout</button>
         </form>
+        
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!empty($_POST["logout"])) {
@@ -110,6 +127,44 @@ function trim_input($data)
             } else {
                 echo "Error updating record: " . mysqli_error($conn);
             }
+        }
+        
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["naddress"])) {
+        
+            $naddress = trim_input($_POST["naddress"]);
+            
+            $sql = "UPDATE user SET address = '$naddress' WHERE uid = '$uid'";
+                
+            if (mysqli_query($conn, $sql)) {
+            
+              $message = "Changed Address";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              header("refresh:3;url=info.php");
+            
+            } else {
+                $message = "Failed to change Address";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                die();
+            }            
+        }
+        
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["nemail"])) {
+        
+            $nemail = trim_input($_POST["nemail"]);
+            
+            $sql = "UPDATE user SET email = '$nemail' WHERE uid = '$uid'";
+                
+            if (mysqli_query($conn, $sql)) {
+            
+              $message = "Changed Email";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              header("refresh:3;url=info.php");
+            
+            } else {
+                $message = "Failed to change Email";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                die();
+            }            
         }
 
         mysqli_close($conn);
