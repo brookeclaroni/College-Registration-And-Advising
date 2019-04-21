@@ -3,7 +3,7 @@
 To do for phase 2:
 
 Everyone
-- [ ] edit personal info w more fields
+- [x] edit personal info w more fields
 
 Student
 - [ ] phd submit thesis
@@ -16,7 +16,7 @@ Grad sec
 - [ ] approve phd thesis
 
 Sys admin
-- [ ] make sure register new user goes into user, roles, and aspects
+- [x] make sure register new user goes into user, roles, and aspects
 - [ ] give access to everything
 
 Registrar
