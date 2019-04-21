@@ -1,6 +1,6 @@
 INSERT INTO aspects VALUES (
     88888888, 
-    NULL,
+    39393939,
     2017, 
     2021,
     "MS",

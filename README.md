@@ -1,4 +1,4 @@
-# harmonandbrooke
+﻿# harmonandbrooke
 
 To do for phase 2:
 
@@ -7,10 +7,10 @@ Everyone
 
 Student
 - [ ] phd submit thesis
-- [ ] fill out registration form
+- [x] fill out registration form
 
 Advisor
-- [ ] sign off registration form
+- [x] sign off registration form
 
 Grad sec
 - [ ] approve phd thesis
