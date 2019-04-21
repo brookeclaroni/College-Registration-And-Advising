@@ -114,6 +114,14 @@ function trim_input($data)
             echo "</form>";
         }
         if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"])) {
+            echo "<h1>View Roster By Section</h1>";
+            echo "<form action=\"viewRoster.php\" method=\"post\">";
+            echo "Schedule ID: <br>";
+            echo "<input type=\"text\" name=\"vscheduleid\" id=\"vscheduleid\">";
+            echo "<button type=\"submit\">View</button>";
+            echo "</form>";
+        }
+        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"])) {
             echo "<h1>Schedule List</h1>";
             $query = "SELECT * FROM schedule INNER JOIN course ON schedule.cid = course.cid ORDER BY schedule.sid";
             $result = mysqli_query($conn, $query);
@@ -166,7 +174,7 @@ function trim_input($data)
                 echo "<script type='text/javascript'>alert('$message');</script>";
                 die();
             }
-//TODO: add email & username (?)
+//TODO: add email & username (?), aspects, and change master/phd role to aspects
             $sql = "INSERT INTO user (uid, password, fname, lname, address, balance)
                 VALUES ('$nuid', '$npass', '$nfname', '$nlname', '$naddress', 0.00)";
             if (mysqli_query($conn, $sql)) {
