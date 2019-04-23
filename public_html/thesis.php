@@ -5,7 +5,7 @@
 </form>
 
 <?php
-   define ("FILEREPOSITORY","./");
+   define ("FILEREPOSITORY","upload/");
 
    if (isset($_FILES['homework'])) {
 
