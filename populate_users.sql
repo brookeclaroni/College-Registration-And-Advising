@@ -1,5 +1,17 @@
 -- Populate user table
 INSERT INTO user VALUES (
+    23452345,
+    'password123',
+    'Harmon',
+    'harmon@gmail.com',
+    'Harmon',
+    'Mendelowitz',
+    '2350 H St NW, Washington, DC 20052',
+    100000.0,
+    234523452
+);
+
+INSERT INTO user VALUES (
     88888888,
     'password123',
     'Billie',
