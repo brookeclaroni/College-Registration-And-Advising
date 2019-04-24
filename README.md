@@ -20,6 +20,6 @@ Sys admin
 - [ ] give access to everything
 
 Registrar
-- [ ] create/edit schedule of classes
-- [ ] view grades/transcript
-- [ ] change student’s current grade
+- [ ] schedule of classes (need to check for being in course list)
+- [x] view grades/transcript
+- [x] change student’s current grade
