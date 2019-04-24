@@ -8,6 +8,7 @@ Everyone
 Student
 - [ ] phd submit thesis
 - [x] fill out registration form
+- [ ] form 1 checks that course is in course catalog
 
 Advisor
 - [x] sign off registration form
