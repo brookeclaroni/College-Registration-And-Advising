@@ -14,6 +14,7 @@ Advisor
 
 Grad sec
 - [ ] approve phd thesis
+- [ ] queries list
 
 Sys admin
 - [x] make sure register new user goes into user, roles, and aspects
