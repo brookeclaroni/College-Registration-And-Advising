@@ -1,3 +1,8 @@
+-- Make Harmon as registrar
+INSERT INTO role VALUES (
+    23452345, 'registrar'
+);
+
 -- Make Alex Broaddus an admin
 INSERT INTO role VALUES (
     43782859, 'admin'
