@@ -8,7 +8,8 @@ if (empty($_SESSION["user_id"])) {
 if (
     !in_array("admin", $_SESSION["user_role"]) &&
     !in_array("gs", $_SESSION["user_role"]) &&
-    !in_array("instructor", $_SESSION["user_role"])
+    !in_array("instructor", $_SESSION["user_role"]) &&
+    !in_array("registrar", $_SESSION["user_role"])
 ) {
     header("Location: index.php");
 }
@@ -111,7 +112,7 @@ function trim_input($data)
                 echo "</table>";
             }
         }
-        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"])) {
+        if (in_array("admin", $_SESSION["user_role"]) || in_array("registrar", $_SESSION["user_role"])) {
             echo "<h1>Change Grade</h1>";
             echo "<form method=\"post\">";
             echo "Student ID: <br>";
@@ -131,7 +132,7 @@ function trim_input($data)
             echo "<button type=\"submit\">View</button>";
             echo "</form>";
         }
-        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"])) {
+        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("registrar", $_SESSION["user_role"])) {
             echo "<h1>Schedule List</h1>";
             $query = "SELECT * FROM schedule INNER JOIN course ON schedule.cid = course.cid ORDER BY schedule.sid";
             $result = mysqli_query($conn, $query);
@@ -161,14 +162,17 @@ function trim_input($data)
             $sid = trim_input($_POST["sid"]);
             $grade = trim_input($_POST["grade"]);
 
-            $sql = "UPDATE enrolls SET grade = '$grade' WHERE uid = '$suid' AND sid='$sid'";
-            if (mysqli_query($conn, $sql)) {
+            if($grade == "A" || $grade == "A-" || $grade == "B+" || $grade == "B" || $grade == "B-" || $grade == "C+" || $grade == "C" || $grade == "F")
+            {
+              $sql = "UPDATE enrolls SET grade = '$grade' WHERE uid = '$suid' AND sid='$sid'";
+              if (mysqli_query($conn, $sql)) {
                 $message = "Grade changed";
                 echo "<script type='text/javascript'>alert('$message');</script>";
-            } else {
-                $message = "Failed to change grade";
-                echo "<script type='text/javascript'>alert('$message');</script>";
-                die();
+              } else {
+                  $message = "Failed to change grade";
+                  echo "<script type='text/javascript'>alert('$message');</script>";
+                  die();
+              }
             }
         }
         if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["nuid"])) {
