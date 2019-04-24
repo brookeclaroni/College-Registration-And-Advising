@@ -25,7 +25,9 @@
 		    }
 	    }
         
-        
+        if (in_array("registrar", $_SESSION["user_role"])) {
+            echo ("<a href=\"editschedule.php\">Schedules</a>");
+        }
         
         if (in_array("alumni", $_SESSION["user_role"])) {
             echo ("<a href=\"transcript.php\">Transcript</a>");
@@ -38,7 +40,7 @@
             echo ("<a href=\"manageAdvisees.php\">Manage Advisees</a>");
             echo ("<a href=\"approveRegForms.php\">Approve Forms</a>");
         }
-        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("instructor", $_SESSION["user_role"])) {
+        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("instructor", $_SESSION["user_role"]) || in_array("registrar", $_SESSION["user_role"])) {
             echo ("<a href=\"manage.php\">Manage</a>");
         }
         
