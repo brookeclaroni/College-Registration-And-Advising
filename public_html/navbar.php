@@ -46,6 +46,7 @@
         
         if (in_array("gs", $_SESSION["user_role"]))
         {
+            echo ("<a href=\"search.php\">Search</a>");
             echo ("<a href=\"manageAdvising.php\">Advising</a>");
             echo ("<a href=\"clearedToGrad.php\">Graduation</a>");
         }
