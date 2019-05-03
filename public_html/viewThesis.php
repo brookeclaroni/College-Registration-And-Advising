@@ -52,10 +52,14 @@ if (!$conn) {
 	$viewQuery="SELECT * FROM thesis WHERE uid = '$uid'";
 	$viewResult=mysqli_query($conn,$viewQuery);
 	while ($row = mysqli_fetch_assoc($viewResult)) {
+		
 		echo '<a href="';
 		echo $row['link'];
 		echo '" target="_blank">View in a separate tab</a>';
+		$pdflink = $row['link'];
+		echo '<iframe src="'.$pdflink.'" width="640" height="480"></iframe>';
 	}
+	
         ?>
    	
        
