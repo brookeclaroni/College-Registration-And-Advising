@@ -88,8 +88,7 @@ function trim_input($data)
                     echo "<tr>";
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
-                    echo "<td>";
-                    echo '<p style="color:#008000">Aprroved</p>';
+                    echo '<td style="color:#008000">Approved';
                     echo "</td>";
                     echo "</tr>";
                 }
