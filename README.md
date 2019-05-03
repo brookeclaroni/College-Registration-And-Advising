@@ -6,7 +6,7 @@ Everyone
 - [x] edit personal info w more fields
 
 Student
-- [ ] phd submit thesis
+- [x] phd submit thesis
 - [x] fill out registration form
 - [ ] form 1 checks that course is in course catalog
 
