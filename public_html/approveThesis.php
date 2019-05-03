@@ -8,7 +8,7 @@ if (
 ) {
     header("Location: index.php");
 }
-$uid = $_POST["uid"];
+$uid = $_POST["id"];
 $servername = "127.0.0.1";
 $username = "harmonandbrooke";
 $password = "DBteam18!";
