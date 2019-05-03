@@ -59,7 +59,7 @@ if (!$conn) {
 		echo '<iframe src="'.$pdflink.'" width="640" height="480"></iframe>';
 	}
 	
-        if (in_array("gs", $_SESSION["user_role"]))
+        if (in_array("gs", $_SESSION["user_role"]) && $_POST['alreadyApproved']!=1)
 	{
 		echo '<form action="approveThesis.php" method="post"><input type="hidden" name="id" value = "'.$uid.'"><button type="submit">Approve</button></form>';
 	}
