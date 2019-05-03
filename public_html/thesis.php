@@ -37,13 +37,46 @@ if (!$conn) {
     <?php
     include "navbar.php";
 	
-	echo '<form action="viewThesis.php" method="post"> 
+	echo '
+	<div class="main-container">
+        <h1>Thesis</h1>';
+	
+	$approved_query =  "SELECT * FROM user u, aspects a WHERE u.uid = ".$uid." AND u.uid = a.id AND a.approveThesis = 1";
+            $approved_result = mysqli_query($conn, $approved_query);
+            if (mysqli_num_rows($approved_result) > 0) {
+                $status = "approved";
+            }
+	
+	    $pending_query =  "SELECT * FROM user u, aspects a, thesis t WHERE u.uid = ".$uid." AND u.uid = a.id AND t.uid=u.uid AND a.approveThesis = 0";
+            $pending_result = mysqli_query($conn, $pending_query);
+            if (mysqli_num_rows($pending_result) > 0) {
+                $status = "pending";
+            }
+	
+	if($status == "approved")
+	{
+	echo '<p> Congratulations!  Your thesis has been approved.</p>';
+	}
+	
+	else if($status == "pending")
+	{
+	echo '
+	<form action="viewThesis.php" method="post"> 
+	Your thesis has been submitted and is awaiting approval.<br>
+	<button>View</button>
+	';
+	}
+	
+	else
+	{
+	echo '
+	<form action="viewThesis.php" method="post"> 
 	Google Drive link: <input type="text" name="link"><br>
 	<button>Submit</button>
 	';
+	}
     ?>
-    <div class="main-container">
-        <h1>Thesis</h1>
+
         
 
 </form>
