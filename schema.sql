@@ -109,7 +109,7 @@ create table formOne(
   
   CREATE TABLE thesis (
     uid INT,
-    data BLOB,
+    link VARCHAR(2083),
     PRIMARY KEY (uid),
     FOREIGN KEY (uid) REFERENCES user(uid)
 );
