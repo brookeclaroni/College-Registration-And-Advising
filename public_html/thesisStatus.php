@@ -56,7 +56,7 @@ function trim_input($data)
                         <th>Student ID</th>
                         <th>Thesis</th>
                     </tr>";
-                while ($row = mysqli_fetch_assoc($cleared_result)) {
+                while ($row = mysqli_fetch_assoc($submitted_result)) {
 			$id = $row["uid"];
                     echo "<tr>";
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
