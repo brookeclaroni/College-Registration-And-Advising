@@ -45,7 +45,7 @@ function trim_input($data)
     
     echo '<div class="main-container">';
        
-            echo "<h1>Students awaiting thesis approval</h1>";
+            echo "<h1>Current students awaiting thesis approval</h1>";
     echo '<br>';
             $submitted_query =  "SELECT * FROM thesis t, user u, aspects a WHERE u.uid = a.id AND t.uid = u.uid AND a.approveThesis = 0";
             $submitted_result = mysqli_query($conn, $submitted_query);
@@ -70,6 +70,33 @@ function trim_input($data)
             }
 	  else{
 		  echo "There are no students who are awaiting thesis approval.";
+	  }
+	
+	echo "<h1>Current students with approved theses</h1>";
+    echo '<br>';
+            $submitted_query =  "SELECT * FROM user u, aspects a WHERE u.uid = a.id AND a.approveThesis = 1";
+            $submitted_result = mysqli_query($conn, $submitted_query);
+            if (mysqli_num_rows($submitted_result) > 0) {
+                echo "<table>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Student ID</th>
+                        <th>Status</th>
+                    </tr>";
+                while ($row = mysqli_fetch_assoc($submitted_result)) {
+			$id = $row["uid"];
+                    echo "<tr>";
+                    echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
+                    echo "<td>" . $row["uid"] . "</td>";
+                    echo "<td>";
+                    echo '<p style="color:#008000">Aprroved</p>';
+                    echo "</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+            }
+	  else{
+		  echo "There are no current students with approved theses.";
 	  }
 	
         
