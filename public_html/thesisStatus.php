@@ -55,6 +55,7 @@ function trim_input($data)
                         <th>Student Name</th>
                         <th>Student ID</th>
                         <th>Thesis</th>
+			<th>Status</th>
                     </tr>";
                 while ($row = mysqli_fetch_assoc($submitted_result)) {
 			$id = $row["uid"];
@@ -64,6 +65,7 @@ function trim_input($data)
                     echo "<td>";
                     echo '<form action="viewThesis.php" method="post"><input type="hidden" name="uid" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
                     echo "</td>";
+		    echo "<td>Pending Approval</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
@@ -72,7 +74,7 @@ function trim_input($data)
 		  echo "There are no students who are awaiting thesis approval.";
 	  }
 	
-	echo "<h1>Current students with approved theses</h1>";
+	echo "<br><br><h1>Current students with approved theses</h1>";
     echo '<br>';
             $submitted_query =  "SELECT * FROM user u, aspects a WHERE u.uid = a.id AND a.approveThesis = 1";
             $submitted_result = mysqli_query($conn, $submitted_query);
@@ -81,13 +83,17 @@ function trim_input($data)
                     <tr>
                         <th>Student Name</th>
                         <th>Student ID</th>
-                        <th>Status</th>
+                        <th>Thesis</th>
+			<th>Status</th>
                     </tr>";
                 while ($row = mysqli_fetch_assoc($submitted_result)) {
 			$id = $row["uid"];
                     echo "<tr>";
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
+	            echo "<td>";
+                    echo '<form action="viewThesis.php" method="post"><input type="hidden" name="uid" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
+                    echo "</td>";
                     echo '<td style="color:#008000">Approved';
                     echo "</td>";
                     echo "</tr>";
