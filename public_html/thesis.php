@@ -36,13 +36,16 @@ if (!$conn) {
 <body>
     <?php
     include "navbar.php";
+	
+	echo '<form action="viewThesis.php" method="post"> 
+	Google Drive link: <input type="text" name="link"><br>
+	<button>Submit</button>
+	';
     ?>
     <div class="main-container">
         <h1>Thesis</h1>
         
-        <form action="viewThesis.php" method="post"> 
-	Google Drive link: <input type="text" name="link"><br>
-	<button>Submit</button>
+
 </form>
     </div>
 </body>
