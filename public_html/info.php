@@ -89,34 +89,28 @@ function trim_input($data)
         <h1>Change Password</h1>
         <form method="post">
             <input type="password" name="npass" id="npass">
+            <br>
+            <br>
             <button type="submit">Change</button>
         </form>
         
         <h1>Change Address</h1>
         <form method="post">
             <input type="text" name="naddress" id="naddress">
+            <br>
+            <br>
             <button type="submit">Change</button>
         </form>
         <h1>Change Email</h1>
         <form method="post">
             <input type="text" name="nemail" id="nemail">
+            <br>
+            <br>
             <button type="submit">Change</button>
         </form>
         
-        <h1>Log out</h1>
-        <form method="post">
-            <input type="hidden" name="logout" value="true">
-            <button type="submit">Logout</button>
-        </form>
-        
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (!empty($_POST["logout"])) {
-                session_destroy();
-                mysqli_close($conn);
-                header("Location: index.php");
-                die();
-            }
+        if ($_SERVER["REQUEST_METHOD"] == "POST"  && !empty($_POST["npass"])) {
 
             $npass = trim_input($_POST["npass"]);
 
