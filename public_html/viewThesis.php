@@ -61,7 +61,7 @@ if (!$conn) {
 	
         if (in_array("gs", $_SESSION["user_role"]))
 	{
-		echo '<form action="thesisStatus.php" method="post"><input type="hidden" name="id" value = "'.$uid.'"><button type="submit">Approve</button></form>';
+		echo '<form action="approveThesis.php" method="post"><input type="hidden" name="id" value = "'.$uid.'"><button type="submit">Approve</button></form>';
 	}
         ?>
    	
