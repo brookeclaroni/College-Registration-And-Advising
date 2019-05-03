@@ -48,6 +48,7 @@
         {
             echo ("<a href=\"search.php\">Search</a>");
             echo ("<a href=\"manageAdvising.php\">Advising</a>");
+	    echo ("<a href=\"thesisStatus.php\">Theses</a>");
             echo ("<a href=\"clearedToGrad.php\">Graduation</a>");
         }
         echo ("<a href=\"info.php\">Info</a>");
