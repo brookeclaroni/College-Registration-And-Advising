@@ -55,7 +55,11 @@ if (!$conn) {
 	
 	if($status == "approved")
 	{
-	echo '<p> Congratulations!  Your thesis has been approved.</p>';
+	echo'
+	<form action="viewThesis.php" method="post"> 
+	<p> Congratulations!  Your thesis has been approved.</p>
+	<button>View</button>
+	';
 	}
 	
 	else if($status == "pending")
