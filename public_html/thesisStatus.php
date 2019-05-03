@@ -45,7 +45,7 @@ function trim_input($data)
     
     echo '<div class="main-container">';
        
-            echo "<h1>Current students awaiting thesis approval</h1>";
+            echo "<h1>Current PhD students awaiting thesis approval</h1>";
     echo '<br>';
             $submitted_query =  "SELECT * FROM thesis t, user u, aspects a WHERE u.uid = a.id AND t.uid = u.uid AND a.approveThesis = 0";
             $submitted_result = mysqli_query($conn, $submitted_query);
@@ -74,7 +74,7 @@ function trim_input($data)
 		  echo "There are no students who are awaiting thesis approval.";
 	  }
 	
-	echo "<br><br><h1>Current students with approved theses</h1>";
+	echo "<br><br><h1>Current PhD students with approved theses</h1>";
     echo '<br>';
             $submitted_query =  "SELECT * FROM user u, aspects a WHERE u.uid = a.id AND a.approveThesis = 1";
             $submitted_result = mysqli_query($conn, $submitted_query);
