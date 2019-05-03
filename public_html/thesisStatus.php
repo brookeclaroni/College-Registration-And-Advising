@@ -65,7 +65,7 @@ function trim_input($data)
                     echo "<td>";
                     echo '<form action="viewThesis.php" method="post"><input type="hidden" name="uid" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
                     echo "</td>";
-		    echo "<td>Pending Approval</td>";
+		    echo "<td style='color:#FFA500'>Pending Approval</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
