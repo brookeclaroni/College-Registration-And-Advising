@@ -14,7 +14,7 @@ Advisor
 - [x] sign off registration form
 
 Grad sec
-- [ ] approve phd thesis
+- [x] approve phd thesis
 - [ ] queries list
 
 Sys admin
