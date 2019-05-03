@@ -92,7 +92,7 @@ function trim_input($data)
                     echo "<td>" . $row["fname"] . " " . $row["lname"] . " " . "</td>";
                     echo "<td>" . $row["uid"] . "</td>";
 	            echo "<td>";
-                    echo '<form action="viewThesis.php" method="post"><input type="hidden" name="uid" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
+                    echo '<form action="viewThesis.php" method="post"><input type="hidden" name="alreadyApproved" value = 1><input type="hidden" name="uid" value = "'.$row["uid"].'"><button type="submit">View</button></form>';
                     echo "</td>";
                     echo '<td style="color:#008000">Approved';
                     echo "</td>";
