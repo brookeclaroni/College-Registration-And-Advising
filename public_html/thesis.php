@@ -40,9 +40,9 @@ if (!$conn) {
     <div class="main-container">
         <h1>Thesis</h1>
         
-        <form action="viewThesis.php" method="post" role="form" enctype="multipart/form-data"> 
-	<input type="file" name="pdf_file" id="pdf_file" accept="application/pdf" />
-	<button id="send" type="submit" name="submit" class="btn btn-success">Submit</button>
+        <form action="viewThesis.php" method="post"> 
+	Google Drive link: <input type="text" name="link" value="link"><br>
+	<button>Submit</button>
 </form>
     </div>
 </body>
