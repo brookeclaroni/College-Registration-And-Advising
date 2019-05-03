@@ -63,7 +63,7 @@ if (!$conn) {
 		echo '<iframe src="'.$pdflink.'" width="640" height="480"></iframe>';
 	}
 	
-	if ($_SESSION["user_role"] == "gs")
+        if (in_array("gs", $_SESSION["user_role"]))
 	{
 		echo '<form action="thesisStatus.php" method="post"><input type="hidden" name="id" value = "'.$uid.'"><button type="submit">Approve</button></form>';
 	}
