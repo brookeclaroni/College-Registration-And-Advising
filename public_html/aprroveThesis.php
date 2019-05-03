@@ -23,7 +23,7 @@ if (!$conn) {
 		$approve_query = "UPDATE aspects SET aprroveThesis = 1 WHERE id = ".$uid."";
 		if(mysqli_query($conn,$approve_query))
 		{
-			header('Location: clearedToGrad.php');
+			header('Location: thesisStatus.php');
 		}
 		else
 		{
