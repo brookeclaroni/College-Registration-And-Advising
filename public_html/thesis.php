@@ -41,7 +41,7 @@ if (!$conn) {
         <h1>Thesis</h1>
         
         <form action="viewThesis.php" method="post"> 
-	Google Drive link: <input type="text" name="link" value="link"><br>
+	Google Drive link: <input type="text" name="link"><br>
 	<button>Submit</button>
 </form>
     </div>
