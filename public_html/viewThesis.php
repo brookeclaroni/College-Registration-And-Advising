@@ -3,11 +3,14 @@ session_start();
 if (empty($_SESSION["user_id"])) {
     header("Location: index.php");
 }
-else if (!in_array("student", $_SESSION["user_role"]))
+else if (!in_array("student", $_SESSION["user_role"]) && !in_array("gs", $_SESSION["user_role"]))
 {
   header("Location: index.php");
 }
 $uid = $_SESSION["user_id"];
+if (isset($_POST['uid'])){
+	$uid = $_POST["uid"];
+}
 $link = $_POST["link"];
 $servername = "127.0.0.1";
 $username = "harmonandbrooke";
@@ -44,7 +47,7 @@ if (!$conn) {
     $pdfQuery = "INSERT INTO thesis (uid, link) VALUES( '$uid', '$link' )";
     if(mysqli_query($conn,$pdfQuery))
 		{
-			echo "Your thesis was successfully submitted!";
+			echo "<p style='color:#008000'> Your thesis was successfully submitted! </p><br>";
 		}
 	
     }
@@ -60,6 +63,10 @@ if (!$conn) {
 		echo '<iframe src="'.$pdflink.'" width="640" height="480"></iframe>';
 	}
 	
+	if ($_SESSION["user_role"] == "gs")
+	{
+		echo '<form action="aprroveThesis.php" method="post"><input type="hidden" name="id" value = "'.$uid.'"><button type="submit">Approve</button></form>';
+	}
         ?>
    	
        
