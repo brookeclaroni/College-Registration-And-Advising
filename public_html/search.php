@@ -53,32 +53,43 @@ function trim_input($data)
     <div class="main-container">
         <?php
         if (in_array("gs", $_SESSION["user_role"])) {
-                    echo "<h1>View Grads By Year</h1>";
-                    echo "<form method=\"post\" action=\"searchResults.php\">";
-                    echo "Year: <br>";
-                    echo "<input type=\"text\" name=\"gyear\" id=\"gyear\">";
-                    echo "<button type=\"submit\">View</button>";
-                    echo "</form>";
-        }
         
-        if (in_array("gs", $_SESSION["user_role"])) {
-                    echo "<h1>View Alumni By Grad Year</h1>";
-                    echo "<form method=\"post\" action=\"searchResults.php\">";
-                    echo "Year: <br>";
-                    echo "<input type=\"text\" name=\"ayear\" id=\"ayear\">";
-                    echo "<button type=\"submit\">View</button>";
-                    echo "</form>";
-        }
+        echo "<form method=\"post\" action=\"searchResults.php\">";
+                    echo "Year: ";
+                    echo "<input type=\"text\" name=\"year\" id=\"year\"><br><br>";
+                    echo "Semester: ";
+                    echo "<input type=\"text\" name=\"semester\" id=\"semester\"><br><br>";
+                    echo "Program: ";
+                    echo "<input type=\"text\" name=\"program\" id=\"program\"><br><br>";
         
-        if (in_array("gs", $_SESSION["user_role"])) {
-                    echo "<h1>View Students By Year/Program</h1>";
-                    echo "<form method=\"post\" action=\"searchResults.php\">";
-                    echo "Year: <br>";
-                    echo "<input type=\"text\" name=\"syear\" id=\"syear\">";
-                    echo "Program: <br>";
-                    echo "<input type=\"text\" name=\"sprogram\" id=\"sprogram\">";
-                    echo "<button type=\"submit\">View</button>";
+                    echo '<select name="group">';
+                    echo '<option value="graduate">Graduates</option>';
+                    echo '<option value="alumni">Alumni</option>';
+                    echo '<option value="student">Students</option>';
+                    echo '</select>';
+        
+                    echo "<br><br>";
+                    echo "<button type=\"submit\">View Students</button>";
+                    echo "<br><br>";
+                    /*echo "<form method=\"post\" action=\"searchResults.php\">";
+                    echo "<input type=\"hidden\" name=\"group\" value=\"graduate\">";
+                    echo "<input type=\"hidden\" name=\"yyear\" value=\"graduate\">";
+                    echo "<button type=\"submit\">View Graduates</button>";
+                    echo "<br><br>";
                     echo "</form>";
+
+                    echo "<form method=\"post\" action=\"searchResults.php\">";
+                    echo "<input type=\"hidden\" name=\"group\" value=\"alumni\">";
+                    echo "<button type=\"submit\">View Alumni</button>";
+                    echo "<br><br>";
+                    echo "</form>";
+
+                    echo "<form method=\"post\" action=\"searchResults.php\">";
+                    echo "<input type=\"hidden\" name=\"group\" value=\"student\">";
+                    echo "<button type=\"submit\">View Students</button>";
+                    echo "<br><br>";*/
+                    
+        echo "</form>";
         }
         
         ?>

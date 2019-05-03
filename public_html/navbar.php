@@ -51,6 +51,7 @@
             echo ("<a href=\"clearedToGrad.php\">Graduation</a>");
         }
         echo ("<a href=\"info.php\">Info</a>");
+        echo ("<a href=\"logout.php\">Log Out</a>");
     }
     ?>
 </div> 
