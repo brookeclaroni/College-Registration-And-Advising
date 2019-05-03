@@ -8,6 +8,7 @@ else if (!in_array("student", $_SESSION["user_role"]))
   header("Location: index.php");
 }
 $uid = $_SESSION["user_id"];
+$link = $_POST["link"];
 $servername = "127.0.0.1";
 $username = "harmonandbrooke";
 $password = "DBteam18!";
@@ -37,33 +38,25 @@ if (!$conn) {
     echo '<div class="main-container">';
     echo '<h1>Thesis</h1>';
     
-//     $allowedExts = array("pdf");
-//     $temp = explode(".", $_FILES["pdf_file"]["name"]);
-//     $extension = end($temp);
-//     $upload_pdf=$_FILES["pdf_file"]["name"];
-//     move_uploaded_file($_FILES["pdf_file"]["tmp_name"],"uploads/pdf/" . $_FILES["pdf_file"]["name"]);
-//     $sql=mysqli_query($con,"INSERT INTO thesis (uid, pdf)VALUES('$uid', '$upload_pdf')");
-    
-    $filePointer = fopen($_FILES[$pdf_file]['name'], 'r');
-    $fileData = fread($filePointer, filesize($_FILES['pdf_file']['name']));
-    $fileData = addslashes($fileData);
-    $pdfQuery = "INSERT INTO thesis (uid, data) VALUES( '$uid', '$fileData' )";
+
+    if (isset($_POST['link']))
+    {
+    $pdfQuery = "INSERT INTO thesis (uid, link) VALUES( '$uid', '$link' )";
     if(mysqli_query($conn,$pdfQuery))
 		{
-			echo "Your thesis was successfully uploaded!";
+			echo "Your thesis was successfully submitted!";
 		}
 	
-	
+    }
 	
 	$viewQuery="SELECT * FROM thesis WHERE uid = '$uid'";
 	$viewResult=mysqli_query($conn,$viewQuery);
 	while ($row = mysqli_fetch_assoc($viewResult)) {
-		$content=$row['data'];
+		echo 'Link: ';
+		echo $row['link'];
 	}
-	
         ?>
-   	<object data="data:application/pdf;base64,<?php echo base64_encode($content);?>" type="application/pdf" style="height:600px;width:100%"></object>
-
+   	
        
     </div>
 </body>
