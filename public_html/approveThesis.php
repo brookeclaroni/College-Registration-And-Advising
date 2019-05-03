@@ -20,7 +20,7 @@ if (!$conn) {
     die('Error: ' . mysqli_connect_error());
 }
 				
-		$approve_query = "UPDATE aspects SET aprroveThesis = 1 WHERE id = ".$uid."";
+		$approve_query = "UPDATE aspects SET approveThesis = 1 WHERE id = ".$uid."";
 		if(mysqli_query($conn,$approve_query))
 		{
 			header('Location: thesisStatus.php');
