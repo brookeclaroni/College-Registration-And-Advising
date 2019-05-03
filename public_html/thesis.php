@@ -66,7 +66,7 @@ if (!$conn) {
 	{
 	echo '
 	<form action="viewThesis.php" method="post"> 
-	Your thesis has been submitted and is awaiting approval.<br>
+	Your thesis has been submitted and is awaiting approval.<br><br>
 	<button>View</button>
 	';
 	}
@@ -74,8 +74,10 @@ if (!$conn) {
 	else
 	{
 	echo '
+	<p> You have not yet submitted a thesis.  You may submit it below.</p>
+	<br>
 	<form action="viewThesis.php" method="post"> 
-	Google Drive link: <input type="text" name="link"><br>
+	Google Drive link: <input type="text" name="link"><br><br>
 	<button>Submit</button>
 	';
 	}
