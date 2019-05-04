@@ -67,7 +67,7 @@ function trim_input($data)
                     echo '</select>';
         
                     echo "<br><br>";
-                    echo "<button type=\"submit\">View Students</button>";
+                    echo "<button type=\"submit\">View People</button>";
                     echo "<br><br>";
                     /*echo "<form method=\"post\" action=\"searchResults.php\">";
                     echo "<input type=\"hidden\" name=\"group\" value=\"graduate\">";
