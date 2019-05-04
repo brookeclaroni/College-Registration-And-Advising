@@ -129,7 +129,7 @@ sem VARCHAR(16)
 );
 
 INSERT INTO updatesemester VALUES (
-    1, "sp19"
+    1, "f19"
 );
 
 source populate_users.sql;
@@ -139,3 +139,4 @@ source populate_courses.sql;
 source populate_schedule.sql;
 source populate_enrolls.sql;
 source populate_regiform.sql;
+source populate_formOne.sql;
