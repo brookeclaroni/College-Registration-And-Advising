@@ -132,6 +132,7 @@ function trim_input($data)
             echo "<button type=\"submit\">View</button>";
             echo "</form>";
         }
+        
         if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("registrar", $_SESSION["user_role"])) {
             echo "<h1>Schedule List</h1>";
             $query = "SELECT * FROM schedule INNER JOIN course ON schedule.cid = course.cid ORDER BY schedule.sid";
@@ -157,6 +158,32 @@ function trim_input($data)
                 echo "</table>";
             }
         }
+        
+        
+        if (in_array("admin", $_SESSION["user_role"])) {
+            echo "<h1>Update Semester</h1>";
+            echo "<form method=\"post\">";
+            echo "Semester: <br>";
+            echo "<input type=\"text\" name=\"newsemesterupdate\" id=\"newsemesterupdate\">";
+            echo "<button type=\"submit\">Update</button>";
+            echo "</form>";
+        }
+        
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["newsemesterupdate"])) {
+            $newsemesterupdate = trim_input($_POST["newsemesterupdate"]);
+
+              $sql = "UPDATE updatesemester SET sem = '$newsemesterupdate' WHERE id = 1";
+              if (mysqli_query($conn, $sql)) {
+                $message = "Updated";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+              } else {
+                  $message = "Failed";
+                  echo "<script type='text/javascript'>alert('$message');</script>";
+                  die();
+              }
+        }
+        
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["sid"])) {
             $suid = trim_input($_POST["suid"]);
             $sid = trim_input($_POST["sid"]);
@@ -202,7 +229,13 @@ function trim_input($data)
                     $sql = "INSERT INTO role VALUES ('$nuid', '$nrole')";
                     if($nrole == "student")
                     {
-                      $sqlaspect = "INSERT INTO aspects VALUES ('$nuid', null, 2019, null, '$nprogram', 0, 0, 0)";
+                      
+                      $sem = "select sem from updatesemester where id=1";
+                      $r = mysqli_query($conn, $sem);
+                      $s = mysqli_fetch_assoc($r);
+                      $se = $s["sem"];
+                      
+                      $sqlaspect = "INSERT INTO aspects VALUES ('$nuid', null, '$se', null, '$nprogram', 0, 0, 0)";
                       if (!mysqli_query($conn, $sqlaspect)) {
                         $message = "Failed to add ASPECTS";
                         echo "<script type='text/javascript'>alert('$message');</script>";
