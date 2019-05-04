@@ -1,0 +1,3 @@
+INSERT INTO regiform VALUES (
+    99999999, 6461,'CSCI'
+);

@@ -1,12 +1,12 @@
 -- Populate course table
 INSERT INTO course VALUES (
     1, 'CSCI', 6221, 'SW Paradigms', 3,
-    12345678, NULL, NULL
+    12121212, NULL, NULL
 );
 
 INSERT INTO course VALUES (
     2, 'CSCI', 6461, 'Computer Architecture', 3,
-    12345678, NULL, NULL
+    12312312, NULL, NULL
 );
 
 INSERT INTO course VALUES (
@@ -26,17 +26,17 @@ INSERT INTO course VALUES (
 
 INSERT INTO course VALUES (
     6, 'CSCI', 6233, 'Networks 2', 3,
-    12121212, 5, NULL
+    12351235, 5, NULL
 );
 
 INSERT INTO course VALUES (
     7, 'CSCI', 6241, 'Database 1', 3,
-    12345678, NULL, NULL
+    12312312, NULL, NULL
 );
 
 INSERT INTO course VALUES (
     8, 'CSCI', 6242, 'Database 2', 3,
-    12121212, 7, NULL
+    12351235, 7, NULL
 );
 
 INSERT INTO course VALUES (
@@ -51,7 +51,7 @@ INSERT INTO course VALUES (
 
 INSERT INTO course VALUES (
     11, 'CSCI', 6251, 'Cloud Computing', 3,
-    12345678, 2, NULL
+    12312312, 2, NULL
 );
 
 INSERT INTO course VALUES (
@@ -66,12 +66,12 @@ INSERT INTO course VALUES (
 
 INSERT INTO course VALUES (
     14, 'CSCI', 6283, 'Security 1', 3,
-    12345678, 3, NULL
+    12312312, 3, NULL
 );
 
 INSERT INTO course VALUES (
     15, 'CSCI', 6284, 'Cryptography', 3,
-    12345678, 3, NULL
+    12312312, 3, NULL
 );
 
 INSERT INTO course VALUES (
@@ -86,7 +86,7 @@ INSERT INTO course VALUES (
 
 INSERT INTO course VALUES (
     18, 'CSCI', 6339, 'Embedded Systems', 3,
-    12345678, 2, 3
+    12312312, 2, 3
 );
 
 INSERT INTO course VALUES (
@@ -101,10 +101,10 @@ INSERT INTO course VALUES (
 
 INSERT INTO course VALUES (
     21, 'ECE', 6242, 'Information Theory', 2,
-    12345678, NULL, NULL
+    12312312, NULL, NULL
 );
 
 INSERT INTO course VALUES (
     22, 'MATH', 6210, 'Logic', 2,
-    12345678, NULL, NULL
+    12312312, NULL, NULL
 );
