@@ -106,7 +106,7 @@ if (!$conn) {
                     echo "<td>IP</td>";
                 }
                 // Allow dropping so long as this is a current semester course
-                if($row["is_current"] == 1) {
+                if($row["is_current"] == 1 && in_array("student", $_SESSION["user_role"])) {
                     echo "<td>
                             <form method=\"post\" action=\"drop.php\">
                                 <input type=\"hidden\" name=\"sid\" value=\"" . $row["sid"] . "\">

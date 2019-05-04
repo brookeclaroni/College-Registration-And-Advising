@@ -80,12 +80,17 @@ if (!$conn) {
                     echo "<td>" . $row["day"] . "</td>";
                     echo "<td>" . $row["start"] . "</td>";
                     echo "<td>" . $row["end"] . "</td>";
-                    echo "<td>
+                    if(in_array("student", $_SESSION["user_role"])){                    
+                      echo "<td>
                         <form method=\"post\" action=\"enroll.php\">
                             <input type=\"hidden\" name=\"sid\" value=\"" . $row["sid"] . "\">
                             <button type=\"submit\">Enroll</button>
                         </form>
-                    </td>";
+                      </td>";
+                    }
+                    else {
+                      echo "<td></td>";
+                    }                                                                                                    
                     echo "</tr>";
                 }
                 echo "</table>";
