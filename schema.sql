@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS course;
 DROP TABLE IF EXISTS aspects;
 DROP TABLE IF EXISTS role;
 DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS updatesemester;
 
 -- Create user table
 CREATE TABLE user (
@@ -121,6 +122,15 @@ create table regiform(
   FOREIGN KEY (uid) REFERENCES user(uid)
   );
 --
+
+create table updatesemester(
+id int,
+sem VARCHAR(16)
+);
+
+INSERT INTO updatesemester VALUES (
+    1, "sp19"
+);
 
 source populate_users.sql;
 source populate_role.sql;
