@@ -55,11 +55,9 @@ function trim_input($data)
         if (in_array("gs", $_SESSION["user_role"])) {
         
         echo "<form method=\"post\" action=\"searchResults.php\">";
-                    echo "Year: ";
-                    echo "<input type=\"text\" name=\"year\" id=\"year\"><br><br>";
-                    echo "Semester: ";
+                    echo "Semester (sp - -/f - -)(Enter both semesters separated by ',' to get a whole year): ";
                     echo "<input type=\"text\" name=\"semester\" id=\"semester\"><br><br>";
-                    echo "Program: ";
+                    echo "Program (MS or PhD): ";
                     echo "<input type=\"text\" name=\"program\" id=\"program\"><br><br>";
         
                     echo '<select name="group">';

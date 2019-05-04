@@ -53,25 +53,79 @@ function trim_input($data)
     <div class="main-container">
         <?php
         
-            $year = trim_input($_POST["year"]);
             $semester = trim_input($_POST["semester"]);
             $program = trim_input($_POST["program"]);
             
             $group = $_POST["group"];
             
+            $sem_array = explode(",", $semester);
+            
               if($group == "alumni"){
-                $sql = "select u.uid, u.fname, u.lname, u.email from user u, role r, aspects a where r.type = 'alumni' and u.uid = r.uid and u.uid = a.id";
-                if($year != ""){
-                  $sql = "select u.uid, u.fname, u.lname, u.email from user u, role r, aspects a where r.type = 'alumni' and u.uid = r.uid and u.uid = a.id and a.gradYear = '$year'";
+                if($semester != "" && $program != ""){
+                foreach ($sem_array as $semester) {
+                      $sql = "select u.uid, u.fname, u.lname, u.email from user u, role r, aspects a where r.type = 'alumni' and u.uid = r.uid and u.uid = a.id and a.gradYear = '$semester' and a.degreeType = '$program'";
+                      $result = mysqli_query($conn, $sql);
+              if (mysqli_num_rows($result) > 0) {
+                echo "<table>
+                        <tr>
+                                <th>User ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                        </tr>";
+                        
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row["uid"] . "</td>";
+                    echo "<td>" . $row["fname"] . "</td>";
+                    echo "<td>" . $row["lname"] . "</td>";
+                    echo "<td>" . $row["email"] . "</td>";
+                    echo "</tr>";
                 }
+
+                echo "</table>";
+              } else {
+                  echo "No people with those parameters";
+              }
+            } 
+            }
+
+                else if($semester != ""){
+                    foreach ($sem_array as $semester) {
+                      $sql = "select u.uid, u.fname, u.lname, u.email from user u, role r, aspects a where r.type = 'alumni' and u.uid = r.uid and u.uid = a.id and a.gradYear = '$semester'";
+                      $result = mysqli_query($conn, $sql);
+              if (mysqli_num_rows($result) > 0) {
+                echo "<table>
+                        <tr>
+                                <th>User ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                        </tr>";
+                        
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row["uid"] . "</td>";
+                    echo "<td>" . $row["fname"] . "</td>";
+                    echo "<td>" . $row["lname"] . "</td>";
+                    echo "<td>" . $row["email"] . "</td>";
+                    echo "</tr>";
+                }
+
+                echo "</table>";
+              } else {
+                  echo "No people with those parameters";
+              }
+            } 
+            }
+                else {
                 if($program != ""){
                     $sql = "select u.uid, u.fname, u.lname, u.email from user u, role r, aspects a where r.type = 'alumni' and u.uid = r.uid and u.uid = a.id and a.degreeType = '$program'";
                 }
-                if($year != "" && $program != ""){
-                    $sql = "select u.uid, u.fname, u.lname, u.email from user u, role r, aspects a where r.type = 'alumni' and u.uid = r.uid and u.uid = a.id and a.gradYear = '$year' and a.degreeType = '$program'";
+                else {
+                $sql = "select u.uid, u.fname, u.lname, u.email from user u, role r, aspects a where r.type = 'alumni' and u.uid = r.uid and u.uid = a.id";
                 }
                 
-              
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
                 echo "<table>
@@ -95,7 +149,8 @@ function trim_input($data)
               } else {
                   echo "No people with those parameters";
               }
-            }
+            } 
+          }
             
             
             
