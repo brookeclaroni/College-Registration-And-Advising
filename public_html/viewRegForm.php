@@ -59,8 +59,8 @@ if (!$conn) {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>" . $row["uid"] . "</td>";
-                echo "<td>" . $row["courseNumber"] . "</td>";
                 echo "<td>" . $row["dept"] . "</td>";
+                echo "<td>" . $row["courseNumber"] . "</td>";
                 echo "</tr>";
             }
             echo "</table>";
@@ -68,7 +68,10 @@ if (!$conn) {
         else{
             echo "No courses were outlined";
         }
-        echo "<form action=\"approveStudentReg.php\" method=\"post\"><input type=\"hidden\" name=\"approveSid\" value = \"$studentid\"><button type=\"submit\">Approve</button></form>";
+        echo "<form action=\"approveStudentReg.php\" method=\"post\">
+        <input type=\"hidden\" name=\"approveSid\" value = \"$studentid\">
+        <br>
+        <button type=\"submit\">Approve</button></form>";
         ?>
     </div>
 </body>
