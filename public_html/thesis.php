@@ -36,11 +36,11 @@ if (!$conn) {
 <body>
     <?php
     include "navbar.php";
-	
-	echo '
+	?>
 	<div class="main-container">
-        <h1>Thesis</h1>';
-	
+        
+        <?php
+	echo "<h1>Thesis</h1>";
 	$approved_query =  "SELECT * FROM user u, aspects a WHERE u.uid = ".$uid." AND u.uid = a.id AND a.approveThesis = 1";
             $approved_result = mysqli_query($conn, $approved_query);
             if (mysqli_num_rows($approved_result) > 0) {
@@ -59,6 +59,7 @@ if (!$conn) {
 	<form action="viewThesis.php" method="post"> 
 	<p> Congratulations!  Your thesis has been approved.</p>
 	<button>View</button>
+ </form>
 	';
 	}
 	
@@ -68,6 +69,7 @@ if (!$conn) {
 	<form action="viewThesis.php" method="post"> 
 	Your thesis has been submitted and is awaiting approval.<br><br>
 	<button>View</button>
+ </form>
 	';
 	}
 	
@@ -79,13 +81,12 @@ if (!$conn) {
 	<form action="viewThesis.php" method="post"> 
 	Google Drive link: <input type="text" name="link"><br><br>
 	<button>Submit</button>
+ </form>
 	';
 	}
     ?>
 
-        
 
-</form>
     </div>
 </body>
 

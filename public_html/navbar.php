@@ -12,18 +12,19 @@
             }
             echo ("<a href=\"form1.php\">Form 1</a>");
             echo ("<a href=\"applyToGraduate.php\">Apply to Graduate</a>");
-        }
-        
-        		$degquery = "SELECT * FROM aspects WHERE id =".$_SESSION['user_id']."";
+            
+            $degquery = "SELECT * FROM aspects WHERE id =".$_SESSION['user_id']."";
             $degresult = mysqli_query($conn, $degquery);
             if (mysqli_num_rows($degresult) > 0){
-		    while ($row = mysqli_fetch_assoc($degresult)) {
-		        if ($row['degreeType'] == "PhD")
+		          while ($row = mysqli_fetch_assoc($degresult)) {
+		            if ($row['degreeType'] == "PhD")
                 {
                     echo ("<a href=\"thesis.php\">Thesis</a>");
                 }
-		    }
-	    }
+              }
+	          }
+        }
+        
         
         if (in_array("registrar", $_SESSION["user_role"])) {
             echo ("<a href=\"editschedule.php\">Schedules</a>");

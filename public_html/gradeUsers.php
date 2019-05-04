@@ -43,7 +43,7 @@ $dbname = "harmonandbrooke";
 
         <?php
         echo "<h2>Students: </h2><br/>";
-        $query = "select enrolls.uid,fname,lname,grade from enrolls,user where enrolls.sid='$scheduleid' and enrolls.uid=user.uid";
+        $query = "select enrolls.uid,fname,lname,grade,type from enrolls,user,role where enrolls.sid='$scheduleid' and enrolls.uid=user.uid and user.uid = role.uid";
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
             echo "<table>
@@ -58,6 +58,7 @@ $dbname = "harmonandbrooke";
                         </tr>";
 
             while ($row = mysqli_fetch_assoc($result)) {
+              if($row["type"] == "student" && $row["grade"] == null){
                 echo "<tr>";
                 echo "<td>" . $row["uid"] . "</td>";
                 echo "<td>" . $row["fname"] . "</td>";
@@ -69,24 +70,7 @@ $dbname = "harmonandbrooke";
                 {
                 echo "<td>" . $row["grade"] . "</td>";
                 }
-                //echo "<td> 
-                //               <input type=\"text\" name=\"gradeinput\">
-                //     </td>";
-                
-                /*echo "<td>
-                <input type=\"hidden\" name=\"student\" value=\"" . $row["uid"] . "\">
-	                      <select name=\"inputgrade\" onchange=\"gradeCourses.php\">
-                        <option value=\"none\">---</option>
-		                    <option value=\"F\">F</option>
-                        <option value=\"C\">C</option>
-                        <option value=\"C+\">C+</option>
-                        <option value=\"B-\">B-</option>
-                        <option value=\"B\">B</option>
-                        <option value=\"B+\">B+</option>
-                        <option value=\"A-\">A-</option>
-                        <option value=\"A\">A</option>
-	                      </select>
-                    </td>";*/
+
                 if ($row["grade"] == null){ 
                 echo "<td> 
                 
@@ -104,6 +88,7 @@ $dbname = "harmonandbrooke";
                 }
                         
                 echo "</tr>";
+              }
             }
 
             echo "</table>";

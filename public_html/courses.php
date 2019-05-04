@@ -128,6 +128,7 @@ if (!$conn) {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td><a href=\"course.php?cid=" . $row["cid"] . "\">" . $row["dept"] . " " . $row["cnum"] . "</a></th>";
+                //echo "<td>" . $row["dept"] . " " . $row["cnum"] . "</td>";
                 echo "<td>" . $row["title"] . "</td>";
                 echo "<td>" . $row["fname"] . " " . $row["lname"] . "</td>";
                 echo "<td>" . $row["credits"] . "</td>";

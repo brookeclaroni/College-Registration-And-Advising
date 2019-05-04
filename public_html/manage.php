@@ -58,6 +58,7 @@ function trim_input($data)
         <form action="viewTranscript.php" method="post">
             Student ID: <br>
             <input type="text" name="uid" id="uid">
+            <br><br>
             <button type="submit">View</button>
         </form>
         <?php
@@ -86,6 +87,7 @@ function trim_input($data)
                     echo "<input type=\"text\" name=\"nroles\" id=\"nroles\">";
                     echo "Program: (only fill out if user is a student (MS or PhD)) <br>";
                     echo "<input type=\"text\" name=\"nprogram\" id=\"nprogram\">";
+                    echo "<br><br>";
                     echo "<button type=\"submit\">Add</button>";
                     echo "</form>";
                 }
@@ -121,19 +123,35 @@ function trim_input($data)
             echo "<input type=\"text\" name=\"sid\" id=\"sid\">";
             echo "Grade: <br>";
             echo "<input type=\"text\" name=\"grade\" id=\"grade\">";
+            echo "<br><br>";
             echo "<button type=\"submit\">Change</button>";
             echo "</form>";
         }
-        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"])) {
+        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("instructor", $_SESSION["user_role"])) {
             echo "<h1>View Roster By Section</h1>";
             echo "<form action=\"viewRoster.php\" method=\"post\">";
             echo "Schedule ID: <br>";
             echo "<input type=\"text\" name=\"vscheduleid\" id=\"vscheduleid\">";
+            echo "<br><br>";
             echo "<button type=\"submit\">View</button>";
             echo "</form>";
         }
         
-        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("registrar", $_SESSION["user_role"])) {
+        if (in_array("gs", $_SESSION["user_role"])) {
+            echo "<h1>Add Grade</h1>";
+            echo "<form method=\"post\">";
+            echo "Grade: <br>";
+            echo "<input type=\"text\" name=\"addgrade\" id=\"addgrade\">";
+            echo "Student ID: <br>";
+            echo "<input type=\"text\" name=\"addstudentid\" id=\"addstudentid\">";
+            echo "Schedule ID: <br>";
+            echo "<input type=\"text\" name=\"addscheduleid\" id=\"addscheduleid\">";
+            echo "<br><br>";
+            echo "<button type=\"submit\">Submit</button>";
+            echo "</form>";
+        }
+        
+        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"]) || in_array("registrar", $_SESSION["user_role"]) || in_array("instructor", $_SESSION["user_role"])) {
             echo "<h1>Schedule List</h1>";
             $query = "SELECT * FROM schedule INNER JOIN course ON schedule.cid = course.cid ORDER BY schedule.sid";
             $result = mysqli_query($conn, $query);
@@ -165,6 +183,7 @@ function trim_input($data)
             echo "<form method=\"post\">";
             echo "Semester: <br>";
             echo "<input type=\"text\" name=\"newsemesterupdate\" id=\"newsemesterupdate\">";
+            echo "<br><br>";
             echo "<button type=\"submit\">Update</button>";
             echo "</form>";
         }
@@ -181,6 +200,38 @@ function trim_input($data)
                   echo "<script type='text/javascript'>alert('$message');</script>";
                   die();
               }
+        }
+        
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["addgrade"]) && !empty($_POST["addstudentid"])) {
+            $addgrade = trim_input($_POST["addgrade"]);
+            $addstudentid = trim_input($_POST["addstudentid"]);
+            $addscheduleid = trim_input($_POST["addscheduleid"]);
+
+            if($addgrade == "A" || $addgrade == "A-" || $addgrade == "B+" || $addgrade == "B" || $addgrade == "B-" || $addgrade == "C+" || $addgrade == "C" || $addgrade == "F")
+            {
+              $checkip = "select grade from enrolls where uid='$addstudentid' and sid='$addscheduleid'";
+              $result = mysqli_query($conn, $checkip);
+              if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                  if ($row["grade"] == null){
+                    $sql = "UPDATE enrolls SET grade = '$addgrade' WHERE uid = '$addstudentid' AND sid='$addscheduleid'";
+                    if (mysqli_query($conn, $sql)) {
+                      $message = "Grade added";
+                      echo "<script type='text/javascript'>alert('$message');</script>";
+                    } else {
+                      $message = "Failed to add grade";
+                      echo "<script type='text/javascript'>alert('$message');</script>";
+                      die();
+                      }
+                  }
+                  else{
+                      $message = "That student already has a grade for that class";
+                      echo "<script type='text/javascript'>alert('$message');</script>";
+                      die();
+                  }
+                } 
+              }
+            }
         }
         
         
