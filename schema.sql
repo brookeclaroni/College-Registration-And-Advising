@@ -84,6 +84,7 @@ CREATE TABLE enrolls (
     uid INT,
     sid INT,
     grade VARCHAR(2),
+    semester VARCHAR(16),
     -- Uncomment when 'user' table is created
     FOREIGN KEY (uid) REFERENCES user(uid),
     FOREIGN KEY (sid) REFERENCES schedule(sid)
