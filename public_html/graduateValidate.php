@@ -167,12 +167,12 @@ if (!$conn) {
         }
     if(($failCounter > 2 && $degreeType == "MS") || ($failCounter > 1 && $degreeType == "PhD"))
         {
-        $failError == 1;
+        $failError = 1;
         $failMsg .= "You received too many grades below a B. ";
         }
     if(($totalGPA < 3.0 && $degreeType == "MS") || ($totalGPA < 3.5 && $degreeType == "PhD"))
         {
-        $gpaError == 1;
+        $gpaError = 1;
         $failMsg .= "Your GPA is too low. ";
         }
     if($ipError == 1)
@@ -199,8 +199,6 @@ if (!$conn) {
         if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1 && $idError != 1 && $degreeTypeError != 1  && $completeForm1Error != 1  && $thesisError != 1){
           $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE id = '$id'";
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
-             $deleteQuery = "DELETE FROM formOne WHERE id = $id";
-          $deleteResult = mysqli_query($conn, $deleteQuery);
             $_SESSION["gradSuccess"] = "Your application for graduation has been submitted and will be reviewed by a graduate secretary soon.";
           header("Location: applyToGraduate.php");
         }
