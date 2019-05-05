@@ -52,6 +52,10 @@
 	    echo ("<a href=\"thesisStatus.php\">Theses</a>");
             echo ("<a href=\"clearedToGrad.php\">Graduation</a>");
         }
+        if (in_array("admin", $_SESSION["user_role"]) || in_array("gs", $_SESSION["user_role"])) {
+            echo ("<a href=\"stats.php\">Stats</a>");
+        }
+        
         echo ("<a href=\"info.php\">Info</a>");
         echo ("<a href=\"logout.php\">Log Out</a>");
     }
