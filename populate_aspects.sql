@@ -1,10 +1,10 @@
 INSERT INTO aspects VALUES (
     88888888, 
     39393939,
-    "f17", 
+    "f19", 
     "f21",
     "MS",
-    0, 
+    1, 
     0,
     0
 );
@@ -26,7 +26,7 @@ INSERT INTO aspects VALUES (
     "f17", 
     "sp21",
     "MS",
-    1, 
+    0, 
     0,
     0
 );
