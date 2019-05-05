@@ -44,7 +44,7 @@ if (!$conn) {
         <h1>Transcript</h1>
         <?php
         // Show the users currently enrolled courses and their grade if entered
-        $query = "SELECT uid, schedule.sid, credits, section, term, day, start, end, is_current, grade, course.cid, dept, cnum, title FROM enrolls, schedule, course WHERE schedule.sid=enrolls.sid AND course.cid=schedule.cid AND enrolls.uid=" . $uid . " ORDER BY term";
+        $query = "SELECT uid, schedule.sid, credits, section, semester, day, start, end, is_current, grade, course.cid, dept, cnum, title FROM enrolls, schedule, course WHERE schedule.sid=enrolls.sid AND course.cid=schedule.cid AND enrolls.uid=" . $uid . " ORDER BY term";
         $result = mysqli_query($conn, $query);
 
         $gpa = 0.0;
@@ -70,7 +70,7 @@ if (!$conn) {
                 echo "<td><a href=\"transcriptCourse.php?cid=" . $row["cid"] . "\">" . $row["dept"] . " " . $row["cnum"] . "</a></th>";
                 echo "<td>" . $row["title"] . "</td>";
                 echo "<td>" . $row["section"] . "</td>";
-                echo "<td>" . $row["term"] . "</td>";
+                echo "<td>" . $row["semester"] . "</td>";
                 echo "<td>" . $row["day"] . "</td>";
                 echo "<td>" . $row["start"] . "</td>";
                 echo "<td>" . $row["end"] . "</td>";
@@ -105,8 +105,14 @@ if (!$conn) {
                 } else {
                     echo "<td>IP</td>";
                 }
+                
+                $sem = "select sem from updatesemester where id=1";
+                $r = mysqli_query($conn, $sem);
+                $s = mysqli_fetch_assoc($r);
+                $se = $s["sem"];
+                
                 // Allow dropping so long as this is a current semester course
-                if($row["is_current"] == 1 && in_array("student", $_SESSION["user_role"])) {
+                if($row["is_current"] == 1 && in_array("student", $_SESSION["user_role"]) && $row["semester"] == $se) {
                     echo "<td>
                             <form method=\"post\" action=\"drop.php\">
                                 <input type=\"hidden\" name=\"sid\" value=\"" . $row["sid"] . "\">

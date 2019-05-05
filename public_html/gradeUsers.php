@@ -42,8 +42,14 @@ $dbname = "harmonandbrooke";
 
 
         <?php
+        
+        $sem = "select sem from updatesemester where id=1";
+        $r = mysqli_query($conn, $sem);
+        $s = mysqli_fetch_assoc($r);
+        $se = $s["sem"];
+        
         echo "<h2>Students: </h2><br/>";
-        $query = "select enrolls.uid,fname,lname,grade,type from enrolls,user,role where enrolls.sid='$scheduleid' and enrolls.uid=user.uid and user.uid = role.uid";
+        $query = "select enrolls.uid,fname,lname,grade,type from enrolls,user,role where enrolls.sid='$scheduleid' and enrolls.uid=user.uid and user.uid = role.uid and enrolls.semester = '$se'";
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
             echo "<table>
@@ -58,7 +64,7 @@ $dbname = "harmonandbrooke";
                         </tr>";
 
             while ($row = mysqli_fetch_assoc($result)) {
-              if($row["type"] == "student" && $row["grade"] == null){
+              if($row["type"] == "student"){
                 echo "<tr>";
                 echo "<td>" . $row["uid"] . "</td>";
                 echo "<td>" . $row["fname"] . "</td>";

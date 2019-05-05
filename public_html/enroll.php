@@ -62,6 +62,11 @@ if (!$conn) {
 
                     // Variable to check for a conflict
                     $conflict = "";
+                    
+                    $sem = "select sem from updatesemester where id=1";
+                      $r = mysqli_query($conn, $sem);
+                      $s = mysqli_fetch_assoc($r);
+                      $se = $s["sem"];
 
                     // Check if student meets the prerequisites
                     $query = "SELECT prereq1_id, prereq2_id FROM course WHERE cid=" . $cid;
@@ -89,7 +94,7 @@ if (!$conn) {
                     // If prereqs are met, check for time conflicts
                     if (empty($conflict)) {
                         // Get all of the users currently enrolled courses
-                        $query = "SELECT uid, schedule.sid, term, day, start, end, course.cid, dept, cnum FROM enrolls, schedule, course WHERE schedule.sid=enrolls.sid AND course.cid=schedule.cid AND enrolls.uid=" . $uid;
+                        $query = "SELECT uid, schedule.sid, term, day, start, end, course.cid, dept, cnum FROM enrolls, schedule, course WHERE schedule.sid=enrolls.sid AND course.cid=schedule.cid and enrolls.semester = '$se' AND enrolls.uid=" . $uid;
                         $result = mysqli_query($conn, $query);
 
                         if (mysqli_num_rows($result) > 0) {
@@ -124,7 +129,7 @@ if (!$conn) {
 
                     // If no conflict, enroll the student in this course
                     if (empty($conflict)) {
-                        $query = "INSERT INTO enrolls VALUES (" . $uid . ", " . $sid . ", NULL)";
+                        $query = "INSERT INTO enrolls VALUES ('$uid', '$sid', NULL, '$se')";
                         mysqli_query($conn, $query);
                         if (!mysqli_connect_errno()) {
                             echo "Sucessfully enrolled";
