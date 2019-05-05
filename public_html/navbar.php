@@ -1,4 +1,5 @@
 <div class="navbar">
+<link rel="icon" href="http://www.gwrha.com/uploads/1/7/9/9/17997469/gw_atx_4cp_pos.png">
     <a href="index.php">Home</a>
     <?php
     if (empty($_SESSION["user_id"])) {
