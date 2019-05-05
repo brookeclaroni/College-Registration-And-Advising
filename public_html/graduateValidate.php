@@ -197,7 +197,7 @@ if (!$conn) {
 	}
     
         if($ipError != 1 && $gpaError!= 1 && $failError != 1 && $form1Error != 1 && $idError != 1 && $degreeTypeError != 1  && $completeForm1Error != 1  && $thesisError != 1){
-          $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE uid = '$id'";
+          $query4 = "UPDATE aspects SET clearedToGrad = 1 WHERE id = '$id'";
           $result4 = mysqli_query($conn, $query4) or die("Bad Query: $query4");
              $deleteQuery = "DELETE FROM formOne WHERE id = $id";
           $deleteResult = mysqli_query($conn, $deleteQuery);
