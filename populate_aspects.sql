@@ -14,7 +14,7 @@ INSERT INTO aspects VALUES (
     NULL,
     "f17", 
     "f21",
-    "PhD",
+    "MS",
     1, 
     0,
     0
@@ -25,7 +25,7 @@ INSERT INTO aspects VALUES (
     39393939,
     "f17", 
     "sp21",
-    "MS",
+    "PhD",
     0, 
     0,
     0
@@ -36,7 +36,7 @@ INSERT INTO aspects VALUES (
     38383838,
     "f19", 
     "sp23",
-    "PhD",
+    "MS",
     1, 
     0,
     0
