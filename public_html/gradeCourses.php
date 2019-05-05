@@ -39,8 +39,13 @@ $dbname = "harmonandbrooke";
         <?php
         if (in_array("student", $_SESSION["user_role"]))
         {
+        $sem = "select sem from updatesemester where id=1";
+        $r = mysqli_query($conn, $sem);
+        $s = mysqli_fetch_assoc($r);
+        $se = $s["sem"];
+        
         echo "<h2>Your Grades: </h2><br/>";
-        $query = "select course.dept,course.cnum,course.title,enrolls.grade from course,enrolls,schedule where enrolls.uid='$uid' and enrolls.sid=schedule.sid and schedule.cid=course.cid and schedule.is_current=1";
+        $query = "select course.dept,course.cnum,course.title,enrolls.grade from course,enrolls,schedule where enrolls.uid='$uid' and enrolls.sid=schedule.sid and schedule.cid=course.cid and schedule.is_current=1 and enrolls.semester = '$se'";
         $result = mysqli_query($conn, $query);
                 if (mysqli_num_rows($result) > 0) {
             echo "<table>
@@ -68,7 +73,7 @@ $dbname = "harmonandbrooke";
             }
             echo "</table>";
         } else {
-            echo "You have no grades";
+            echo "You have no grades this semester";
         }
         }
         

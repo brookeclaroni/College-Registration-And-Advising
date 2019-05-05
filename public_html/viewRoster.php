@@ -37,11 +37,16 @@ $uid = $_SESSION["user_id"];
     <div class="main-container">
         <?php
         
+        $sem = "select sem from updatesemester where id=1";
+        $r = mysqli_query($conn, $sem);
+        $s = mysqli_fetch_assoc($r);
+        $se = $s["sem"];
+        
         
         $schedulenum = $_POST["vscheduleid"];
         
             echo "<h1>Roster List</h1>";
-            $query = "SELECT e.sid, u.uid, u.fname, u.lname, e.grade FROM enrolls e, user u where e.sid = '$schedulenum' and u.uid = e.uid";
+            $query = "SELECT e.sid, u.uid, u.fname, u.lname, e.grade FROM enrolls e, user u where e.sid = '$schedulenum' and u.uid = e.uid and e.semester = '$se'";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) > 0) {
                 echo "<table>

@@ -50,7 +50,7 @@ if (!$conn) {
         <?php
         $gpa = 0.0;
     // Show the users currently enrolled courses and their grade if entered
-        $query = "SELECT uid, schedule.sid, section, term, day, start, end, grade, course.cid, dept, cnum, title, credits FROM enrolls, schedule, course WHERE schedule.sid=enrolls.sid AND course.cid=schedule.cid AND enrolls.uid=" . $uid . " ORDER BY term";
+        $query = "SELECT uid, schedule.sid, section, semester, day, start, end, grade, course.cid, dept, cnum, title, credits FROM enrolls, schedule, course WHERE schedule.sid=enrolls.sid AND course.cid=schedule.cid AND enrolls.uid=" . $uid . " ORDER BY term";
         $result = mysqli_query($conn, $query);
 
         // Generate a table of all the enrolled courses
@@ -72,7 +72,7 @@ if (!$conn) {
                 echo "<td><a href=\"transcriptCourse.php?cid=" . $row["cid"] . "\">" . $row["dept"] . " " . $row["cnum"] . "</a></th>";
                 echo "<td>" . $row["title"] . "</td>";
                 echo "<td>" . $row["section"] . "</td>";
-                echo "<td>" . $row["term"] . "</td>";
+                echo "<td>" . $row["semester"] . "</td>";
                 echo "<td>" . $row["day"] . "</td>";
                 echo "<td>" . $row["start"] . "</td>";
                 echo "<td>" . $row["end"] . "</td>";
