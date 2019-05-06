@@ -45,7 +45,7 @@ function trim_input($data)
     
     echo '<div class="main-container">';
        
-            echo "<h1>Students without an Adivisor</h1>";
+            echo "<h1>Students without an Advisor</h1>";
             $query =  "SELECT * FROM role r, user u, aspects a WHERE r.uid = u.uid AND u.uid = a.id AND r.type = 'student' AND a.advisorid IS NULL";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) > 0) {
@@ -92,7 +92,7 @@ function trim_input($data)
 		  echo "All students have been assigned an advisor.";
 	  }
 	
-	 echo "<h1>Students with an Adivisor</h1>";
+	 echo "<h1>Students with an Advisor</h1>";
             $query =  "SELECT * FROM role r, user u, aspects a WHERE r.uid = u.uid AND u.uid = a.id AND r.type = 'student' AND a.advisorid IS NOT NULL";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) > 0) {
