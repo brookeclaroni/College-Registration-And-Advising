@@ -1,4 +1,3 @@
-<link rel="icon" href="http://www.gwrha.com/uploads/1/7/9/9/17997469/gw_atx_4cp_pos.png">
 <?php
 session_start();
 
@@ -34,6 +33,9 @@ if (!$conn) {
     <form action="reset.php" method="post" class="reset-button">
         <button type="submit" style="display: block; margin: 0 auto;">Reset</button>
     </form>
+    <div class="main-container">
+        <img style="width:500px;height:300px" src="img/logo.png"">
+    </div>
 
 </body>
 

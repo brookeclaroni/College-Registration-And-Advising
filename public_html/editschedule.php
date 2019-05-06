@@ -139,7 +139,8 @@ function trim_input($data)
                   header("refresh:3;url=editschedule.php");
                 } else {
                   $message = "Failed to Remove Schedule";
-                  echo "<script type='text/javascript'>alert('$message');</script>";
+                  $mess = "Error deleting record: " . mysqli_error($conn);
+                  echo "<script type='text/javascript'>alert('$mess');</script>";
                   die();
                 }
               }
