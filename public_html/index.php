@@ -30,7 +30,7 @@ if (!$conn) {
     <?php
     include "navbar.php";
     ?>
-    <img style="width:1000px;height:600px" src="img/harmonandbrooke.jpg">
+    <img style="display:block; margin-left: auto; margin-right: auto;width:1000px;height:600px" src="img/harmonandbrooke.jpg">
     <form action="reset.php" method="post" class="reset-button">
         <button type="submit" style="display: block; margin: 0 auto;">Reset</button>
     </form>
