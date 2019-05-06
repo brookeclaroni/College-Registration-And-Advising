@@ -47,7 +47,7 @@ function trim_input($data)
        
             echo "<h1>Current PhD students awaiting thesis approval</h1>";
     echo '<br>';
-            $submitted_query =  "SELECT * FROM thesis t, user u, aspects a WHERE u.uid = a.id AND t.uid = u.uid AND a.approveThesis = 0";
+            $submitted_query =  "SELECT * FROM thesis t, user u, aspects a, role r WHERE u.uid = a.id AND t.uid = u.uid AND a.approveThesis = 0 AND r.type = 'student'";
             $submitted_result = mysqli_query($conn, $submitted_query);
             if (mysqli_num_rows($submitted_result) > 0) {
                 echo "<table>
@@ -76,7 +76,7 @@ function trim_input($data)
 	
 	echo "<br><br><h1>Current PhD students with approved theses</h1>";
     echo '<br>';
-            $submitted_query =  "SELECT * FROM user u, aspects a WHERE u.uid = a.id AND a.approveThesis = 1";
+            $submitted_query =  "SELECT * FROM user u, aspects a, role r WHERE u.uid = a.id AND a.approveThesis = 1 AND r.type = 'student'";
             $submitted_result = mysqli_query($conn, $submitted_query);
             if (mysqli_num_rows($submitted_result) > 0) {
                 echo "<table>
