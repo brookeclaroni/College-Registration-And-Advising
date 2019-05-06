@@ -21,7 +21,15 @@ if (!$conn) {
     die('Error: ' . mysqli_connect_error());
 }
 		$studentid = $_POST["id"];
+   
+   $sem = "select sem from updatesemester where id=1";
+   $r = mysqli_query($conn, $sem);
+   $s = mysqli_fetch_assoc($r);
+   $se = $s["sem"];
 		
+   $qu = "UPDATE aspects SET gradYear = '$se' WHERE id = ".$studentid."";
+	 mysqli_query($conn,$qu);
+   
 		
 		$assign_query = "UPDATE role SET type = 'alumni' WHERE uid = ".$studentid."";
 		if(mysqli_query($conn,$assign_query))
