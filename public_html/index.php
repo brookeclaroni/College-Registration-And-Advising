@@ -34,7 +34,7 @@ if (!$conn) {
         <button type="submit" style="display: block; margin: 0 auto;">Reset</button>
     </form>
     <div class="main-container">
-        <img style="width:1500px;height:600px" src="img/harmonandbrooke.jpg"">
+        <img style="width:800px;height:500px" src="img/harmonandbrooke.jpg"">
     </div>
 
 </body>
