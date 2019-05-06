@@ -26,6 +26,14 @@ if (!$conn) {
    $r = mysqli_query($conn, $sem);
    $s = mysqli_fetch_assoc($r);
    $se = $s["sem"];
+	
+$infoquery = "SELECT * FROM user WHERE uid = ".$studentid."";
+$inforesult = mysqli_query($conn,$infoquery);
+while ($row = mysqli_fetch_assoc($inforesult))
+	{
+	$studentname = $row["fname"];
+	$studentemail = $row["email"];
+}
 		
    $qu = "UPDATE aspects SET gradYear = '$se' WHERE id = ".$studentid."";
 	 mysqli_query($conn,$qu);
@@ -36,6 +44,7 @@ if (!$conn) {
 		{
 			$_SESSION["processGradSuccess"] = "You have successfully proccessed the graduation of student number: ";
 			$_SESSION["processGradSuccess"] .= $studentid;
+			mail($studentemail,"Congratulations!","Congratulations, ".$studentname."!  Your application for graduation has been approved, and you have officially graduated The George Washington University!");
 			header('Location: clearedToGrad.php');
 		}
 		else
