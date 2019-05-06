@@ -208,7 +208,7 @@ INSERT INTO user VALUES (
     'password123',
     'Parmer',
     'parmer@gmail.com',
-    'Parmer',
+    'Gabe',
     'Parmer',
     '616 23rd St NW, Washington, DC 20052',
     0.0,
